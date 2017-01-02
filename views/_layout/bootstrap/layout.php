@@ -58,7 +58,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
 
     <?php if ($this->cbconfig->get_device_view_type() !== 'mobile') {?>
         <!-- header start -->
-        <header class="header">
+        <header class="header navbar-fixed-top">
             <div class="container">
                 <ul class="header-top-menu">
                     <?php if ($this->member->is_admin() === 'super') { ?>
@@ -109,7 +109,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
 <?php } ?>
 
     <!-- nav start -->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-fixed-top" style="margin-top:3em;">
         <div class="container">
 
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -199,7 +199,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
     <!-- nav end --> <!-- header end -->
 
     <!-- main start -->
-    <div class="main">
+    <div class="main" style="margin-top:8em;">
         <div class="container">
             <div class="row">
 
@@ -231,8 +231,8 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
         <div class="container">
             <div>
                 <ul class="company">
-                    <li><a href="<?php echo document_url('aboutus'); ?>" title="회사소개">회사소개</a></li>
-                    <li><a href="<?php echo document_url('provision'); ?>" title="이용약관">이용약관</a></li>
+
+                    <li><a href="<?php echo document_url('provision'); ?>" title="이용약관">이용약관</a>&nbsp;&nbsp;&nbsp;|</li>
                     <li><a href="<?php echo document_url('privacy'); ?>" title="개인정보 취급방침">개인정보 취급방침</a></li>
                 </ul>
             </div>
@@ -251,8 +251,9 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                 <?php if ($this->cbconfig->item('company_retail_sale_no')) { ?><span><b>통신판매</b> <?php echo $this->cbconfig->item('company_retail_sale_no'); ?></span><?php } ?>
                 <?php if ($this->cbconfig->item('company_added_sale_no')) { ?><span><b>부가통신</b> <?php echo $this->cbconfig->item('company_added_sale_no'); ?></span><?php } ?>
                 <?php if ($this->cbconfig->item('company_admin_name')) { ?><span><b>정보관리책임자명</b> <?php echo $this->cbconfig->item('company_admin_name'); ?></span><?php } ?>
-                <span>Copyright&copy; <?php echo $this->cbconfig->item('site_title'); ?>. All Rights Reserved.</span>
+                <span>Copyright&copy; <a href="http://mismaven.kr" style="color:#8f1822;"><strong>Maven</strong></a>. All Rights Reserved.</span>
             </div>
+            <!--
             <?php
             if ($this->cbconfig->get_device_view_type() === 'mobile') {
             ?>
@@ -270,6 +271,7 @@ var cookie_prefix = "<?php echo config_item('cookie_prefix'); ?>";
                 }
             }
             ?>
+            -->
         </div>
     </footer>
     <!-- footer end -->
