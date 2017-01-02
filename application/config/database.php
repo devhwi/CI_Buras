@@ -76,7 +76,7 @@ $query_builder = TRUE;
 /*
  *	CiBoard 주 : 데이터베이스 정보를 입력하는 곳입니다.
  *	dbprefix 는 cb_ 기본세팅되어있습니다. 원하시는 경우 다른 이름으로 변경하셔도 됩니다.
- *	단 이미 설치를 완료하신 상태에서 dbprefix 를 변경하시면, 
+ *	단 이미 설치를 완료하신 상태에서 dbprefix 를 변경하시면,
  *	테이블을 찾을수 없으므로 재설치해주셔야 합니다
  * 'dsn'	=> 'mysql:host=localhost;dbname=yourdatabasenamehere',
  * 위 부분에서 yourdatabasenamehere 이 부분을 실제 디비명으로 변경해주세요
@@ -84,11 +84,11 @@ $query_builder = TRUE;
 $db['default'] = array(
 	//'dsn'	=> 'mysql:host=localhost;dbname=yourdatabasenamehere',
 	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
+	'username' => 'buras',
+	'password' => 'buras2001!',
+	'database' => 'buras',
 	'dbdriver' => 'mysqli',
-	'dbprefix' => 'cb_',
+	'dbprefix' => 'buras_',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
