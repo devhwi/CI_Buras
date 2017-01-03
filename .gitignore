@@ -3,3 +3,7 @@
 .ftpmessage
 .htaccess
 .git
+.DS_Store
+composer.json
+license.txt
+readme.rst
