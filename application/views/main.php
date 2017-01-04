@@ -1,3 +1,15 @@
+<style media="screen">
+img {
+  width: 700px;
+}
+
+.item-box {
+  width: 100%;
+  height: 50vh;
+  background-color: #888;
+}
+</style>
+
 <div class="row">
   <div id="carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -7,13 +19,16 @@
     </ol>
     <div class="carousel-inner" role="listbox">
       <div class="carousel-item active" align="center">
-        <img src="<?=base_url('assets/img/test_carousel.jpg')?>" alt="First slide" width="900">
+        <div class="item-box" style="">
+        </div>
       </div>
       <div class="carousel-item" align="center">
-        <img src="<?=base_url('assets/img/test_carousel.jpg')?>" alt="Second slide" width="900">
+        <div class="item-box" style="">
+        </div>
       </div>
       <div class="carousel-item" align="center">
-        <img src="<?=base_url('assets/img/test_carousel.jpg')?>" alt="Third slide" width="900">
+        <div class="item-box" style="">
+        </div>
       </div>
     </div>
     <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
