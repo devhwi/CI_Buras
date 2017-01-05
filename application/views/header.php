@@ -32,7 +32,7 @@
   <body>
     <!-- Navigation bar -->
     <div class="container-fluid">
-      <nav class="navbar navbar-fixed-top navbar-dark bg-inverse" role="navigation">
+      <nav class="navbar navbar-fixed-top navbar-light bg-faded" role="navigation">
         <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
         <!-- User Account Information -->
         <ul class="nav navbar-nav pull-xs-right" style="float:right">
@@ -81,7 +81,7 @@
             </div>
           </li>
         </ul> -->
-        <ul class="nav navbar-nav pull-xs-right" style="float:right;margin-right:1em;margin-top:0.1em;">
+        <ul class="nav navbar-nav pull-xs-right" style="float:right;margin-right:1em;">
           <li class="nav-item">
             <a class="nav-link" id="user-menu" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" href="#">
@@ -112,28 +112,35 @@
         <div class="collapse navbar-toggleable-md" id="navbarResponsive">
           <a class="navbar-brand" href="#">
             <!-- <img src="" alt="" width="88px" height="45px"/> -->
-            Buras
+            LOGO
           </a>
           <ul class="nav navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#">메뉴1</a>
+              <a class="nav-link" href="#">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">메뉴2</a>
+              <a class="nav-link" href="#">MEMBER</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">메뉴3</a>
+              <a class="nav-link" href="#">RENTAL</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">드랍더비트</a>
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MEDIA</a>
               <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-                <a class="dropdown-item" href="#">드랍다운1</a>
-                <a class="dropdown-item" href="#">드랍다운2</a>
+                <a class="dropdown-item" href="#">VIDEOS</a>
+                <a class="dropdown-item" href="#">GALLERY</a>
               </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">메뉴</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BOARD</a>
+              <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
+                <a class="dropdown-item" href="#">BOARD1</a>
+                <a class="dropdown-item" href="#">BOARD2</a>
+                <a class="dropdown-item" href="#">BOARD3</a>
+                <a class="dropdown-item" href="#">BOARD4</a>
+              </div>
             </li>
     <?php
           //   }else if($this->session->userdata('user_level') == "0"){

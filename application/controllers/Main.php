@@ -8,8 +8,14 @@ class Main extends CI_Controller{
   }
 
   function index() {
-    $this->load->view('header');
-		$this->load->view('main');
-		$this->load->view('footer');
+    // if($this->session->userdata('user_id')) {
+      $this->load->view('header');
+      $this->load->view('main');
+      $this->load->view('footer');
+    // } else {
+    //   $this->load->view('header');
+    //   $this->load->view('login');
+    //   $this->load->view('footer');
+    // }
   }
 }
