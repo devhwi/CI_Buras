@@ -30,7 +30,7 @@ CREATE TABLE `user` (
 
 CREATE TABLE `rental` (
     `rental_id` INT(5) NOT NULL,
-    `rental_user` VARCAHR(20) NOT NULL,
+    `rental_user` VARCHAR(20) NOT NULL,
     `rental_product` INT(5) NOT NULL,
     `rental_status` BOOLEAN NOT NULL,
     `rental_dttm` DATETIME NOT NULL,
