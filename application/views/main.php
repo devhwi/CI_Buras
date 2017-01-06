@@ -74,6 +74,46 @@
       </ul>
     </div>
   </div>
+  <div class="col-md-6">
+    <div class="card">
+      <h3 class="card-header">게시판1</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">게시물 예시</li>
+        <li class="list-group-item">게시물 예시</li>
+        <li class="list-group-item">게시물 예시</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <h3 class="card-header">게시판2</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">게시물 예시</li>
+        <li class="list-group-item">게시물 예시</li>
+        <li class="list-group-item">게시물 예시</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <h3 class="card-header">게시판1</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">게시물 예시</li>
+        <li class="list-group-item">게시물 예시</li>
+        <li class="list-group-item">게시물 예시</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <h3 class="card-header">게시판2</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">게시물 예시</li>
+        <li class="list-group-item">게시물 예시</li>
+        <li class="list-group-item">게시물 예시</li>
+      </ul>
+    </div>
+  </div>
 </div>
 <!-- CAROUSEL END -->
 <script type="text/javascript">

@@ -9,8 +9,28 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css')?>">
 
+
+
     <!-- Custom Style -->
     <style type="text/css">
+    @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+    html, body {
+      font-family: 'Jeju Gothic';
+    }
+
+    footer {
+      bottom: 0;
+      position: fixed;
+      width:100%;
+      background-color: #f7f7f9;
+      margin-top: 3em;
+      padding: 1em 1.5em;
+      /*text-align: center;*/
+      color: #333;
+      font-size: 0.75em;
+    }
+
     .img-rounded {
       border: 0px;
       border-radius: 50%;
@@ -141,6 +161,9 @@
                 <a class="dropdown-item" href="#">BOARD3</a>
                 <a class="dropdown-item" href="#">BOARD4</a>
               </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" target="_blank">ADMIN(새창)</a>
             </li>
     <?php
           //   }else if($this->session->userdata('user_level') == "0"){
