@@ -67,6 +67,7 @@ CREATE TABLE `board` (
     `board_writer` VARCHAR(20) NOT NULL,
     `board_dttm` DATETIME NOT NULL,
     `board_notice` BOOLEAN NOT NULL,
+    `board_file` VARCHAR(200) NOT NULL,
     PRIMARY KEY (`board_id`)
 );
 
