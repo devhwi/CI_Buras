@@ -1,23 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Buras</title>
-
-	<style type="text/css">
-
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
-
-	body {
-		background-color: #fff;
-		/*margin: 40px;*/
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
-
+	<style>
 	a {
 		color: #003399;
 		background-color: transparent;
@@ -59,14 +40,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	#container {
-		margin: 10px;
+		margin-top:20%;
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
+	}
+
+	nav {
+		display: none;
 	}
 	</style>
 </head>
 <body>
 
+<div class="container">
 <div id="container">
 	<h1>Welcome to Buras</h1>
 
@@ -74,10 +60,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p>Buras 홈페이지 구축 중입니다.</p>
 
 		<code>구축기간 : 2017.01.01 ~ 2017.01.31 (예상)</code>
+
+		<p>간단하게 진행상황을 볼 수 있습니다.</p>
+
+		<code><i class="fa fa-github" aria-hidden="true"></i>&nbsp;<a href="https://github.com/devhwi/CI_Buras">https://github.com/devhwi/CI_Buras</a></code>
 	</div>
 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+	<p class="footer">Build by <a href="http://mismaven.kr"><strong style="color:#8f1022">MAVEN</strong></a></p>
 </div>
-
-</body>
-</html>
+</div>
