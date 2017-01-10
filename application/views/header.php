@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css')?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css')?>">
-
-
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/font-awesome.min.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom_style.css') ?>">
 
     <!-- Custom Style -->
     <style type="text/css">

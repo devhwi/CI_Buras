@@ -3,15 +3,13 @@
 <head>
   <!-- Meta Informations -->
   <meta http-equiv="Content-Type" context="text/html" charset="utf-8">
-  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
   <!-- Title -->
   <title>Buras</title>
 
   <!-- Javascript Libraries -->
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-  <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
-  <script src="<?php echo base_url('assets/js/bootstrap.js') ?>"></script>
 
   <!-- CSS Libraries -->
   <link href="<?php echo base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
@@ -58,7 +56,7 @@
     <div class="layer">
       <h4 class="main_title">BURAS에 오신 것을 환영합니다.</h4>
       <!-- Form Start -->
-      <form action="" method="post" onsubmit="<?php echo base_url('Main') ?>">
+      <form action="<?php echo base_url('Login/login_check'); ?>" method="post">
         <!-- I D -->
         <div class= "form-group">
           <input class="form-control" type="text" id="user_id" name="user_id"
@@ -66,8 +64,7 @@
         </div>
         <!-- Password -->
         <div class= "form-group">
-          <input class="form-control" type="password" id="user_password" name="user_password"
-          placeholder="Password" tabindex="2" required>
+          <input class="form-control" type="password" id="user_password" name="user_password" placeholder="Password" tabindex="2" required>
         </div>
         <!-- Submit button -->
         <div class="form-group">
