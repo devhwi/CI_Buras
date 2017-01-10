@@ -11,7 +11,7 @@ class Login extends CI_Controller{
 
   function index() {
     // If session isset, redirect to Main controller
-    if($this->session->userdata('user_id')){
+    if(session_check()){
       redirect('Main', 'refresh');
     }
 
