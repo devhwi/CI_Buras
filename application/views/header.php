@@ -19,6 +19,11 @@
       font-family: 'Jeju Gothic';
     }
 
+    body {
+      padding-top: 2.5em;
+      font-size: 0.9rem;
+    }
+
     footer {
       bottom: 0;
       position: fixed;
@@ -178,4 +183,3 @@
       </nav>
     </div>
     <div class="container-fluid">
-      <div style="margin-top:3.4em"></div>

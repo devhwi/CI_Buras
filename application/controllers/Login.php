@@ -29,7 +29,7 @@ class Login extends CI_Controller{
 
       $result = $this->MLogin->check_id_password($id, $pw);
 
-      if($result) {
+      if(NULL != $result) {
         // set session info
         $this->session->set_userdata('user_id'   , $user_data->user_id   );
     		$this->session->set_userdata('user_name' , $user_data->user_name );
