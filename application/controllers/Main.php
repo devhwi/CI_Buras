@@ -5,17 +5,16 @@ class Main extends CI_Controller{
 
   public function __construct() {
     parent::__construct();
+
+    // session is not set -> error
+    if(!session_check()) {
+      session_error_msg();
+    }
   }
 
   function index() {
-    // if($this->session->userdata('user_id')) {
-      $this->load->view('header');
-      $this->load->view('main');
-      $this->load->view('footer');
-    // } else {
-    //   $this->load->view('header');
-    //   $this->load->view('login');
-    //   $this->load->view('footer');
-    // }
+    $this->load->view('header');
+    $this->load->view('main');
+    $this->load->view('footer');
   }
 }
