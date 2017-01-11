@@ -16,18 +16,18 @@
 <div class="col-md-2" style="margin-bottom: 1em;">
   <form class="" action="<?=base_url('Product/list')?>" method="post">
     <div class="form-group">
-      <label for="">종류</label>
-      <select class="custom-select" name="type" onchange="this.form.submit()">
-      <?php foreach($type as $k => $row) : ?>
-        <option value = "<?=$row['type_id']?>" <?php if($sel_type == $row['type_id']) echo 'selected'?>><?=$row['type_desc']?></option>
-      <?php endforeach; ?>
-      </select>
-    </div>
-    <div class="form-group">
       <label for="">쟝르</label>
       <select class="custom-select" name="genre" onchange="this.form.submit()">
       <?php foreach($genre as $k => $row) : ?>
         <option value = "<?=$row['genre_id']?>" <?php if($sel_genre == $row['genre_id']) echo 'selected'?>><?=$row['genre_desc']?></option>
+      <?php endforeach; ?>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="">종류</label>
+      <select class="custom-select" name="type" onchange="this.form.submit()">
+      <?php foreach($type as $k => $row) : ?>
+        <option value = "<?=$row['type_id']?>" <?php if($sel_type == $row['type_id']) echo 'selected'?>><?=$row['type_desc']?></option>
       <?php endforeach; ?>
       </select>
     </div>
