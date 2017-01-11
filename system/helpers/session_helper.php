@@ -18,8 +18,16 @@ if ( ! function_exists('session_check'))
 if ( ! function_exists('session_error_msg'))
 {
   function session_error_msg() {
-    echo "<script>alert('잘못된 요청입니다.')</script>";
+    echo "<script>alert('먼저 로그인을 해주세요.')</script>";
     redirect(base_url(), 'refresh');
   }
+}
+
+if ( ! function_exists('general_error_msg'))
+{
+	function general_error_msg() {
+		echo "<script>alert('잘못된 요청입니다.')</script>";
+		redirect(base_url(), 'refresh');
+	}
 }
 ?>

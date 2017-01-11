@@ -145,8 +145,14 @@
             <li class="nav-item">
               <a class="nav-link" href="#">MEMBER</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">RENTAL</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RENTAL</a>
+              <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
+                <a class="dropdown-item" href="#">PRODUCTS</a>
+                <a class="dropdown-item" href="#">MY RENTAL</a>
+                <a class="dropdown-item" href="#">REGISTE</a>
+              </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
@@ -181,4 +187,4 @@
         </div>
       </nav>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top: 3.0em; padding-bottom: 3.5em;">

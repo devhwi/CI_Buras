@@ -46,7 +46,7 @@ class Login extends CI_Controller{
         $this->session->set_userdata('user_major' , $result->user_major );
 
         echo "<script>alert('안녕하세요.')</script>";
-        // redirect('Main', 'refresh');
+        redirect('Main', 'refresh');
       } else {
         echo "<script>alert('아이디, 비밀번호를 확인해 주세요.')</script>";
         redirect('Login', 'refresh');
