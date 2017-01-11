@@ -39,7 +39,7 @@
 	}
 
 	#container {
-		margin-top:20%;
+		margin-top:15%;
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
 	}
@@ -63,6 +63,11 @@
 		<p>간단하게 진행상황을 볼 수 있습니다.</p>
 
 		<code><i class="fa fa-github" aria-hidden="true"></i>&nbsp;<a href="https://github.com/devhwi/CI_Buras">https://github.com/devhwi/CI_Buras</a></code>
+
+		<p>테스트 해보기</p>
+
+		<code><a href="http://buras.cafe24.com/Login">로그인 페이지</a><br>
+					테스트 id : test / pw : test</code>
 	</div>
 
 	<p class="footer">Build by <a href="http://mismaven.kr"><strong style="color:#8f1022">MAVEN</strong></a></p>

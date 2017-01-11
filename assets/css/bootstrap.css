@@ -3001,7 +3001,8 @@ tbody.collapse.in {
 
 .dropdown-divider {
   height: 1px;
-  margin: 0.5rem 0;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }

@@ -64,25 +64,21 @@
             <div class="dropdown">
               <a class="dropdown-toggle nav-link" id="user-menu" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false" href="#">
-                <!-- <img class="img-rounded" src="" width="30em" height="30em"> -->
-                사진
-                <span class="hidden-xs-down">&nbsp;사용자명</span>
+                <span class="hidden-xs-down"><?=$this->session->userdata('user_name')?></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-menu" style="width:300px;">
-                <div class="col-md-4 col-xs-4">
-                  <!-- <img class="img-rounded" src="" width="70em" height="70em"> -->
-                  사진
-                </div>
-                <div class="col-md-8 col-xs-8" style="padding-left:0px;padding-top:5px;">
-                  <p class="text-left"><strong>&nbsp;사용자명</strong></p>
-                  <p class="text-left small">정보</p>
+                <div class="col-md-12 col-xs-12" style="padding:1rem;">
+                  <p class="text-left"><strong><?=$this->session->userdata('user_name')?> (<?=$this->session->userdata('user_id')?>)</strong></p>
+                  <p class="text-left small" style="margin-bottom:0;">
+                    <?=$this->session->userdata('user_season')?> 기<br>
+                    <?=$this->session->userdata('user_email')?></p>
                 </div>
                 <div class="col-md-12 dropdown-divider"></div>
                 <div class="col-md-12">
                   <a href="#" class="btn btn-primary btn-block btn-sm">내정보</a>
                 </div>
                 <div class="col-md-12" style="margin-top:0.25em">
-                  <a href="#" class="btn btn-danger btn-block btn-sm">로그아웃</a>
+                  <a href="<?=base_url('Login/logout')?>" class="btn btn-danger btn-block btn-sm">로그아웃</a>
                 </div>
               </div>
             </div>
@@ -117,13 +113,14 @@
       					<ul>
                   <li class="col-sm-12" style="margin-bottom:0.5em;">
                     <div class="col-md-2 col-sm-4 col-xs-3">
-                      <!-- <img class="img-rounded" src="" width="50px" height="50px"> -->사진
+                      <!-- <img class="img-rounded" src="" width="50px" height="50px"> -->
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-9" align="left" style="padding:0; margin-top:0.6em;">
                       <a href="#">
+                        알림이 없습니다.
                         <?php
                         // echo $row['user_name_from'].'님께서 '.$row['alarm_target_date'].'의 일정에 댓글을 달았습니다.';
-                        echo "알림내용";
+                        //echo "알림내용";
                         ?>
                       </a>
                     </div>
@@ -140,7 +137,7 @@
           </a>
           <ul class="nav navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#">HOME</a>
+              <a class="nav-link" href="<?=base_url('Main')?>">HOME</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">MEMBER</a>
@@ -149,9 +146,9 @@
               <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RENTAL</a>
               <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-                <a class="dropdown-item" href="#">PRODUCTS</a>
+                <a class="dropdown-item" href="<?=base_url('Product/list')?>">PRODUCTS</a>
                 <a class="dropdown-item" href="#">MY RENTAL</a>
-                <a class="dropdown-item" href="#">REGISTE</a>
+                <a class="dropdown-item" href="#">REGISTER</a>
               </div>
             </li>
             <li class="nav-item dropdown">
