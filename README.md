@@ -3,7 +3,7 @@
   * 언어 : html, css, Javascript, php(7.0)
   * 프레임워크 : CodeIgniter (3.x)
   * 데이터베이스 : MariaDB(10.0.x)
-###### 개발자
+### 개발자
   * @[devhwi]
 ### 진행 상황
   * 2017.01.02 : 요구사항 정리 및 플랜 작성
