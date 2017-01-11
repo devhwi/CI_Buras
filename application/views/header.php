@@ -3,7 +3,7 @@
   <head>
     <!-- Meta Informations -->
     <meta http-equiv="Content-Type" context="text/html" charset="utf-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <!-- External CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.css')?>">
@@ -148,7 +148,6 @@
               <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
                 <a class="dropdown-item" href="<?=base_url('Product/list')?>">PRODUCTS</a>
                 <a class="dropdown-item" href="#">MY RENTAL</a>
-                <a class="dropdown-item" href="#">REGISTER</a>
               </div>
             </li>
             <li class="nav-item dropdown">

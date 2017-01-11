@@ -11,7 +11,7 @@ class Product extends CI_Controller{
       session_error_msg();
     }
     $this->load->model('MProduct');
-    $this->load->library('pagination');
+    // $this->load->library('pagination');
   }
 
   function list() {
@@ -53,20 +53,17 @@ class Product extends CI_Controller{
     // $this->pagination->initialize($config);
     // echo $this->pagination->create_links();
 
-    $style = $this->input->post('style');
     $genre = $this->input->post('genre');
     $type  = $this->input->post('type');
     $color = $this->input->post('color');
 
 
-    $view_params['list'] = $this->MProduct->get_product_list($style, $genre, $type, $color);
+    $view_params['list'] = $this->MProduct->get_product_list($genre, $type, $color);
 
-    $view_params['sel_style'] = $style;
     $view_params['sel_genre'] = $genre;
     $view_params['sel_type']  = $type;
     $view_params['sel_color'] = $color;
 
-    $view_params['style'] = $this->MProduct->get_style();
     $view_params['genre'] = $this->MProduct->get_genre();
     $view_params['type'] = $this->MProduct->get_type();
     $view_params['color'] = $this->MProduct->get_color();
@@ -88,6 +85,24 @@ class Product extends CI_Controller{
 
     $this->load->view('header');
     $this->load->view('product_detail', $view_params);
+    $this->load->view('footer');
+  }
+
+  function request() {
+    if(!($this->uri->segment(3) && $this->uri->segment(4))) {
+      general_error_msg();
+    }
+
+    $name = $this->uri->segment(3);
+    $seq = $this->uri->segment(4);
+
+    $view_params['name'] = $name;
+    $view_params['seq'] = $seq;
+    $view_params['detail'] = $this->MProduct->get_detail($name);
+    $view_params['id'] = $this->MProduct->get_id($name, $seq);;
+
+    $this->load->view('header');
+    $this->load->view('product_request', $view_params);
     $this->load->view('footer');
   }
 }

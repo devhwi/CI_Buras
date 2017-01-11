@@ -13,9 +13,9 @@
     width: 100%;
   }
 </style>
-<div class="col-md-12" style="margin-bottom: 1em;">
+<div class="col-md-2" style="margin-bottom: 1em;">
   <form class="" action="<?=base_url('Product/list')?>" method="post">
-    <div class="form-group col-md-3">
+    <div class="form-group">
       <label for="">종류</label>
       <select class="custom-select" name="type" onchange="this.form.submit()">
       <?php foreach($type as $k => $row) : ?>
@@ -23,15 +23,7 @@
       <?php endforeach; ?>
       </select>
     </div>
-    <div class="form-group col-md-3">
-      <label for="">스타일</label>
-      <select class="custom-select" name="style" onchange="this.form.submit()">
-      <?php foreach($style as $k => $row) : ?>
-        <option value = "<?=$row['style_id']?>" <?php if($sel_style == $row['style_id']) echo 'selected'?>><?=$row['style_desc']?></option>
-      <?php endforeach; ?>
-      </select>
-    </div>
-    <div class="form-group col-md-3">
+    <div class="form-group">
       <label for="">쟝르</label>
       <select class="custom-select" name="genre" onchange="this.form.submit()">
       <?php foreach($genre as $k => $row) : ?>
@@ -39,7 +31,7 @@
       <?php endforeach; ?>
       </select>
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group">
       <label for="">컬러</label>
       <select class="custom-select" name="color" onchange="this.form.submit()">
       <?php foreach($color as $k => $row) : ?>
@@ -49,9 +41,9 @@
     </div>
   </form>
 </div>
-<div class="col-md-12" id="">
+<div class="col-md-10" id="">
   <?php foreach($list as $k => $row) : ?>
-  <div class="col-md-2">
+  <div class="col-md-3">
     <div class="card text-xs-center">
       <a class="plink" href="<?=base_url('Product/detail/'.$row['product_name'])?>"><img class="card-img-top" src="<?=base_url('assets/img/product/'.$row['product_img'])?>" alt=""></a>
       <div class="card-block">

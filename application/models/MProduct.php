@@ -7,20 +7,19 @@ class MProduct extends CI_Model{
     parent::__construct();
   }
 
-  function get_product_list($style, $type, $genre, $color) {
+  function get_product_list($type, $genre, $color) {
     $sql  = "SELECT product_name
                   , product_type
                   , product_genre
                   , product_color
-                  , product_style
                   , product_img
                   , (SELECT COUNT(*) FROM product
                      WHERE product_status != 0
-                     AND product_id = p.product_id) AS product_count
+                     AND product_name = p.product_name
+                     GROUP BY product_name) AS product_count
              FROM product p
              WHERE 1=1
              ";
-    $style != 0 ? $sql .= "AND product_style = '$style'" : $sql .= " ";
     $genre != 0 ? $sql .= "AND product_genre = '$genre'" : $sql .= " ";
     $type  != 0 ? $sql .= "AND product_type  = '$type'"  : $sql .= " ";
     $color != 0 ? $sql .= "AND product_color = '$color'" : $sql .= " ";
@@ -34,7 +33,6 @@ class MProduct extends CI_Model{
   function get_detail($name) {
     $sql = "SELECT product_name
                  , (SELECT genre_desc FROM genre WHERE genre_id = p.product_genre) as product_genre
-                 , (SELECT style_desc FROM style WHERE style_id = p.product_style) as product_style
                  , (SELECT type_desc  FROM type  WHERE type_id  = p.product_type)  as product_type
                  , (SELECT color_desc FROM color WHERE color_id = p.product_color) as product_color
                  , product_img
@@ -56,10 +54,15 @@ class MProduct extends CI_Model{
     return $query->result_array();
   }
 
-  function get_style() {
-    $sql = "SELECT 0 AS style_id, '모두' AS style_desc UNION SELECT * FROM style";
+  function get_id($name, $seq) {
+    $sql = "SELECT product_id
+            FROM product
+            WHERE product_name = '$name'
+            AND product_seq = $seq";
     $query = $this->db->query($sql);
-    return $query->result_array();
+    $row = $query->row();
+
+    return $row->product_id;
   }
 
   function get_genre() {
