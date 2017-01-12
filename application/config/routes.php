@@ -56,3 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['Product/list/(:any)'] = 'Product/list';
 $route['Product/detail/(:any)'] = 'Product/detail';
+
+$route['Rental/my/(:any)'] = 'Rental/my';

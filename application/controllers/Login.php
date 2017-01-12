@@ -28,7 +28,7 @@ class Login extends CI_Controller{
       $pw = $this->input->post('user_password');
 
       $result = $this->MLogin->check_id_password($id, $pw);
-      if($result->user_level == 0) {
+      if($result && $result->user_level == 0) {
         echo "<script>alert('가입 대기중입니다. 관리자에게 문의해 주세요.')</script>";
         redirect('Login', 'refresh');
       }
