@@ -6,7 +6,7 @@
 
 
 ### 개발자
-  * @[devhwi]
+  * @[devhwi](https://github.com/devhwi)
 
 
 ### 진행 상황
