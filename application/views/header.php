@@ -145,7 +145,7 @@
               <a class="nav-link" href="<?=base_url('Main')?>">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">MEMBER</a>
+              <a class="nav-link" href="<?=base_url('Member')?>">MEMBER</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
