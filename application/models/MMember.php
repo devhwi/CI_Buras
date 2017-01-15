@@ -11,8 +11,8 @@ class MMember extends CI_Model{
     $sql = "SELECT *
             FROM user
             WHERE 1=1 ";
-    $sql.= "AND user_name = '$user' ";
-    $sql.= "AND user_season = '$season' ";
+    $sql.= $user != "" ? "AND user_name LIKE '%$user%' " : " ";
+    $sql.= $season != "" ? "AND user_season = '$season' " : " ";
     $sql.= "ORDER BY user_name";
 
     $query = $this->db->query($sql);

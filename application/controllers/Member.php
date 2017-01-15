@@ -19,9 +19,15 @@ class Member extends CI_Controller{
     $user = "";
     $season = "";
 
-    if($this->input->post('user_name') && $this->input->post('user_season')){
+    $view_params['search_member'] = "";
+    $view_params['search_season'] = "";
+
+    if($this->input->post('user_name') || $this->input->post('user_season')){
       $user = $this->input->post('user_name');
       $season = $this->input->post('user_season');
+
+      $view_params['search_member'] = $user;
+      $view_params['search_season'] = $season;
     }
 
     $view_params['member'] = $this->MMember->get_members($user, $season);

@@ -5,38 +5,28 @@
   .card {
     height: 250px; /* 임시 높이 사이즈 */
   }
-
-  .name {
-    float: right;
-    margin-right: 0.5em;
-  }
-
-  .season {
-    float: right;
-    margin-right: 0.5em;
-  }
-
-  .button_area {
-    float: right;
-  }
 </style>
-<div class="col-md-12">
-  <div class="button_area form-group">
-    <button class="btn btn-primary" type="submit">검색</button>
-  </div>
-  <div class="season form-group">
-    <select class="" name="user_season">
-      <option value="all">모두</option>
-      <?php foreach($season_list as $k => $row) : ?>
-      <option value="<?=$user_season?>"><?=$user_season?></option>
-      <?php endforeach; ?>
-    </select>
-  </div>
-  <div class="name form-group">
-    <input class="form-control" type="text" name="user_name" placeholder="이름">
-  </div>
+
+<div class="form-group" style="margin-bottom: 1em;">
+  <form class="" action="<?=base_url('Member')?>" method="post">
+    <div class="col-md-7">&nbsp;</div>
+    <div class="col-md-3" align="right">
+      <input class="form-control" type="text" name="user_name" placeholder="이름" value="<?=$search_member?>">
+    </div>
+    <div class="col-md-1" align="right">
+      <select class="form-control" name="user_season">
+        <option value="" <?=$search_season == "" ? 'selected' : ''?>>모두</option>
+        <?php foreach($season_list as $k => $row) : ?>
+        <option value="<?=$row['user_season']?>" <?=$search_season == $row['user_season'] ? 'selected' : ''?>><?=$row['user_season']?> 기</option>
+        <?php endforeach; ?>
+      </select>
+    </div>
+    <div class="col-md-1" align="right">
+      <button class="btn btn-primary" type="submit" style="width:100%">검색</button>
+    </div>
+  </form>
 </div>
-<div class="card-deck" style="clear:both">
+<div class="card-deck" style="clear:both; padding-top:1em;">
   <?php foreach ($member as $k => $row) :?>
   <div class="card-margin col-md-3">
     <div class="card">
