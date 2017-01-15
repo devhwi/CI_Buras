@@ -9,18 +9,20 @@ class MRental extends CI_Model{
 
   function register_rental($data) {
     $query = $this->db->insert('rental', $data);
-    return $query->last_insert_id();
+    return $this->db->insert_id();
   }
 
   function check_product_valid($id) {
     $sql = "SELECT product_status
             FROM product
-            WHERE product_id = $id";
+            WHERE product_id = $id
+            ";
     $query = $this->db->query($sql);
     $row = $query->row();
-    if($row) {
+    if($row){
       return $row->product_status;
     }
+    return "";
   }
 
   function update_product_status($id) {

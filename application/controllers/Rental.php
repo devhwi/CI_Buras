@@ -24,7 +24,7 @@ class Rental extends CI_Controller{
     $user = $this->input->post('rental_user');
     $dttm = date('Y-m-d H:i:s');
 
-    if($this->MRental->check_product_valid($product) === 0) {
+    if($this->MRental->check_product_valid($product) == 0) {
       echo "<script>alert('이미 대여중인 품목입니다.');</script>";
       redirect('Product/list', 'refresh');
     }
