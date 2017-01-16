@@ -58,3 +58,8 @@ $route['Product/list/(:any)'] = 'Product/list';
 $route['Product/detail/(:any)'] = 'Product/detail';
 
 $route['Rental/my/(:any)'] = 'Rental/my';
+
+$route['Board/(:num)'] = 'Board';                 // category
+$route['Board/(:num)/page/(:num)'] = 'Board';     // list -> page view
+$route['Board/write/(:num)'] = 'Board/write';     // write board
+$route['Board/detail/(:num)'] = 'Board/detail';   // board detail
