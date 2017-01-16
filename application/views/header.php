@@ -167,10 +167,10 @@
               <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BOARD</a>
               <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-                <a class="dropdown-item" href="#">BOARD1</a>
-                <a class="dropdown-item" href="#">BOARD2</a>
-                <a class="dropdown-item" href="#">BOARD3</a>
-                <a class="dropdown-item" href="#">BOARD4</a>
+                <a class="dropdown-item" href="<?=base_url('Board/1')?>">공지사항</a>
+                <a class="dropdown-item" href="<?=base_url('Board/2')?>">회계보고</a>
+                <a class="dropdown-item" href="<?=base_url('Board/3')?>">문서창고</a>
+                <a class="dropdown-item" href="<?=base_url('Board/4')?>">자료실</a>
               </div>
             </li>
             <li class="nav-item">

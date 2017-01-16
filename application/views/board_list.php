@@ -33,28 +33,32 @@
     <thead>
       <tr>
         <th class="col-md-1">번호</th>
-        <th class="col-md-7">제목</th>
+        <th class="col-md-6">제목</th>
         <th class="col-md-2">작성자</th>
         <th class="col-md-2">작성일</th>
+        <th class="col-md-1">댓글</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach($board_list as $k => $row) : ?>
       <tr>
-        <td class="col-md-1"><?=$row['rownum']?></td>
-        <td class="col-md-7" style="text-align:left;"><a href="<?=base_url('Board/detail/'.$row['board_id'])?>"><?=$row['board_title']?></a></td>
+        <td class="col-md-1"><?=$row['board_seq']?></td>
+        <td class="col-md-6" style="text-align:left;"><a href="<?=base_url('Board/detail/'.$row['board_id'])?>"><?=$row['board_title']?></a></td>
         <td class="col-md-2"><?=$row['user_name']?></td>
         <td class="col-md-2"><?=$row['board_dttm']?></td>
+        <td class="col-md-1"><?=$row['reply_count']?></td>
       </tr>
       <?php endforeach; ?>
     </tbody>
     <tfoot>
+      <tr>
+        <td><?=$this->pagination->create_links();?></td>
+      </tr>
       <tr>
         <td style="text-align:right;">
           <a class="btn btn-primary" style="color:#fff" href="<?=base_url('Board/write/'.$category_id)?>">글쓰기</a>
         </td>
       </tr>
     </tfoot>
-    <?=$this->pagination->create_links();?>
   </table>
 </div>
