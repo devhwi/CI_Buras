@@ -29,7 +29,7 @@
     </li>
   <?php endforeach; ?>
   </ul>
-  <table class="table table-sm">
+  <table class="table">
     <thead>
       <tr>
         <th class="col-md-1">번호</th>
