@@ -47,6 +47,10 @@
 	nav {
 		display: none;
 	}
+
+	pre {
+		margin: 0;
+	}
 	</style>
 </head>
 <body>
@@ -78,13 +82,15 @@
 2017.01.15(일) : 멤버 보기, 멤버 검색(이름, 기수)
 2017.01.16(월) : 게시판 리스트 뷰
 2017.01.17(화) : 게시판 리스트 뷰 마무리
-2017.01.18(수) : 게시판 상세 & 댓글
+2017.01.18(수) : 게시판 상세 & 댓글, 관리자 로그인
 </pre>
 		</code>
 
 		<p>테스트 해보기</p>
-		<code><a href="http://buras.cafe24.com/Login">로그인 페이지</a><br>
+		<code><a href="http://buras.cafe24.com/Login">사용자 페이지</a><br>
 					테스트 id : test / pw : test</code>
+		<code><a href="http://buras.cafe24.com/admin/Login">관리자 페이지</a><br>
+					테스트 id : admin / pw : admin</code>
 	</div>
 
 	<p class="footer">Build by <a href="http://mismaven.kr"><strong style="color:#8f1022">MAVEN</strong></a></p>
