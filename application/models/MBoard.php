@@ -53,4 +53,47 @@ class MBoard extends CI_Model{
 
     return $row->category_desc;
   }
+
+  function get_board_detail($id) {
+    $sql = "SELECT b.*
+                 , user_name
+            FROM board b
+               , user u
+            WHERE board_id = $id
+            AND b.board_Writer = u.user_id";
+    $query = $this->db->query($sql);
+
+    return $query->row();
+  }
+
+  function get_reply($board_id) {
+    $this->db->query('SET @rownum := 0;');
+    $sql = "SELECT level - 1 AS reply_level
+                 , r.*
+                 , (SELECT user_name FROM user WHERE user_id = r.reply_writer) AS user_name
+                 , func.level
+            FROM (SELECT @rownum := @rownum + 1 AS rownum
+                       , get_lvl() AS id
+                       , @level AS level
+                  FROM (SELECT @start_with:=0
+                             , @id:=@start_with
+                             , @level:=0) vars
+                  JOIN reply
+                  WHERE @id IS NOT NULL) func
+                  JOIN reply r ON func.id = r.reply_id
+            WHERE reply_ref_board = $board_id
+            ORDER BY rownum";
+    $query = $this->db->query($sql);
+
+    return $query->result_array();
+  }
+
+  function get_reply_count($board_id) {
+    $sql = "SELECT *
+            FROM reply r
+            WHERE reply_ref_board = $board_id";
+    $query = $this->db->query($sql);
+
+    return $query->num_rows();
+  }
 }

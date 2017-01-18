@@ -7167,4 +7167,11 @@ a.badge:focus, a.badge:hover {
       -ms-flex-pack: distribute !important;
           justify-content: space-around !important;
 }
+
+.d-flex {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
 /*# sourceMappingURL=bootstrap.css.map */

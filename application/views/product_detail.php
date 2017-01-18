@@ -23,6 +23,12 @@
     max-width: 100%;
 
   }
+
+  @media (max-width: 767px) {
+    .detail-top {
+      margin-top: 1em;
+    }
+  }
 </style>
 
 <div class="container">
@@ -33,7 +39,7 @@
     <img src="<?=base_url('assets/img/product/'.$detail->product_img)?>" alt=""/>
   </div>
   <div class="col-md-7">
-    <h5>물품 정보</h5>
+    <h5 class="detail-top">물품 정보</h5>
     <div class="divider"></div>
     <p>종류 : <?=$detail->product_type?></p>
     <p>쟝르 : <?=$detail->product_genre?></p>
