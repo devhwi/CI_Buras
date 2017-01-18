@@ -30,4 +30,12 @@ if ( ! function_exists('general_error_msg'))
 		redirect(base_url(), 'refresh');
 	}
 }
+
+if ( ! function_exists('admin_error_msg'))
+{
+	function admin_error_msg() {
+		echo "<script>alert('관리자가 아닙니다.')</script>";
+		redirect(base_url(), 'refresh');
+	}
+}
 ?>
