@@ -55,18 +55,14 @@ class Product extends CI_Controller{
 
     $genre = $this->input->post('genre');
     $type  = $this->input->post('type');
-    $color = $this->input->post('color');
 
-
-    $view_params['list'] = $this->MProduct->get_product_list($genre, $type, $color);
+    $view_params['list'] = $this->MProduct->get_product_list($type, $genre);
 
     $view_params['sel_genre'] = $genre;
     $view_params['sel_type']  = $type;
-    $view_params['sel_color'] = $color;
 
     $view_params['genre'] = $this->MProduct->get_genre();
     $view_params['type'] = $this->MProduct->get_type();
-    $view_params['color'] = $this->MProduct->get_color();
 
     $this->load->view('header');
     $this->load->view('product', $view_params);

@@ -7,11 +7,10 @@ class MProduct extends CI_Model{
     parent::__construct();
   }
 
-  function get_product_list($type, $genre, $color) {
+  function get_product_list($type, $genre) {
     $sql  = "SELECT product_name
                   , product_type
                   , product_genre
-                  , product_color
                   , product_img
                   , (SELECT COUNT(*) FROM product
                      WHERE product_status != 0
@@ -20,9 +19,8 @@ class MProduct extends CI_Model{
              FROM product p
              WHERE 1=1
              ";
-    $genre != 0 ? $sql .= "AND product_genre = '$genre'" : $sql .= " ";
-    $type  != 0 ? $sql .= "AND product_type  = '$type'"  : $sql .= " ";
-    $color != 0 ? $sql .= "AND product_color = '$color'" : $sql .= " ";
+    $type != 0 ? $sql .= "AND product_type  = '$type'"  : $sql .= " ";
+    $type == 1 && $genre != 0 ? $sql .= "AND product_genre = '$genre'" : $sql .= " ";
     $sql .= "GROUP BY product_name";
 
     $query = $this->db->query($sql);
@@ -34,7 +32,6 @@ class MProduct extends CI_Model{
     $sql = "SELECT product_name
                  , (SELECT genre_desc FROM genre WHERE genre_id = p.product_genre) as product_genre
                  , (SELECT type_desc  FROM type  WHERE type_id  = p.product_type)  as product_type
-                 , (SELECT color_desc FROM color WHERE color_id = p.product_color) as product_color
                  , product_img
             FROM product p
             WHERE product_name = '$name'
@@ -73,12 +70,6 @@ class MProduct extends CI_Model{
 
   function get_type() {
     $sql = "SELECT 0 AS type_id, '모두' AS type_desc UNION SELECT * FROM type";
-    $query = $this->db->query($sql);
-    return $query->result_array();
-  }
-
-  function get_color() {
-    $sql = "SELECT 0 AS color_id, '모두' AS color_desc UNION SELECT * FROM color";
     $query = $this->db->query($sql);
     return $query->result_array();
   }

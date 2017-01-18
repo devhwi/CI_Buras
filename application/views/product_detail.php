@@ -43,7 +43,6 @@
     <div class="divider"></div>
     <p>종류 : <?=$detail->product_type?></p>
     <p>쟝르 : <?=$detail->product_genre?></p>
-    <p>색상 : <?=$detail->product_color?></p>
     <div class="blank"></div>
     <h5>물품 현황</h5>
     <div class="divider"></div>
