@@ -69,7 +69,7 @@
         <!-- Submit button -->
         <div class="form-group">
           <button type="submit" class="main_button" tabindex="5">로그인</button>
-          <button type="button" class="main_button main_button_signup" tabindex="6">회원가입</button>
+          <button type="button" class="main_button main_button_signup" tabindex="6" onclick="location.href='<?=base_url('Signup')?>'">회원가입</button>
         </div>
       </form>
     </div>
