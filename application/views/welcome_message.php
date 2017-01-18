@@ -83,7 +83,7 @@
 		</code>
 
 		<p>테스트 해보기</p>
-		<code><a href="http://buras.cafe24.com/Login">로그인 페이지</a>
+		<code><a href="http://buras.cafe24.com/Login">로그인 페이지</a><br>
 					테스트 id : test / pw : test</code>
 	</div>
 
