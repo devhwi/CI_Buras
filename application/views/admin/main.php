@@ -1,0 +1,2 @@
+<style media="screen">
+</style>

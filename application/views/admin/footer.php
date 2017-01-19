@@ -1,4 +1,5 @@
 </div>
+</div>
 
 <!-- jQuery -->
 <script src="<?=base_url('assets/admin/vendor/jquery/jquery.min.js')?>"></script>
