@@ -15,6 +15,16 @@ if ( ! function_exists('session_check'))
   }
 }
 
+if( ! function_exists('admin_check'))
+{
+	function admin_check() {
+		$CI = &get_instance();
+		$level = $CI->session->userdata('user_level');
+
+		return $level;
+	}
+}
+
 if ( ! function_exists('session_error_msg'))
 {
   function session_error_msg() {

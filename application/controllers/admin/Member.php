@@ -9,11 +9,19 @@ class Member extends CI_Controller{
     // session check
     if(!session_check()) {
       session_error_msg();
+    }else{
+      // admin check (rental & web master)
+      if(admin_check() != 10) {
+        admin_error_msg();
+      }
     }
 
     $this->load->model('admin/MMember');
   }
 
+  /**
+   * 멤버 리스트
+   */
   function index() {
     // admin 계정은 제외한다.
     // 만일을 대비해서 권한을 변경할 수 없도록 한다.
@@ -26,6 +34,9 @@ class Member extends CI_Controller{
     $this->load->view('admin/footer');
   }
 
+  /**
+   * 멤버 권한 변경
+   */
   function change_level() {
     if(!($this->input->post('user_level') > -1 && $this->input->post('user_id'))) {
       general_error_msg();

@@ -225,7 +225,7 @@
             <a href="##"><i class="fa fa-archive fa-fw"></i> 물품 관리<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
               <li>
-                <a href="##">카테고리 관리</a>
+                <a href="<?=base_url('admin/Product/category')?>">카테고리 관리</a>
               </li>
               <li>
                 <a href="##">물품 리스트</a>
