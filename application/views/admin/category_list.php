@@ -73,6 +73,7 @@
     </table>
   </div>
 </div>
+<!-- End row class -->
 
 <!-- Type Modal -->
 <div class="modal fade" id="add_type" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -172,15 +172,15 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr <?=$this->session->userdata('user_level') == 10 ? 'class="success"' : ""?>>
                   <td>10</td>
                   <td>웹마스터</td>
                 </tr>
-                <tr>
+                <tr <?=$this->session->userdata('user_level') == 9 ? 'class="success"' : ""?>>
                   <td>9</td>
                   <td>회계관리자</td>
                 </tr>
-                <tr>
+                <tr <?=$this->session->userdata('user_level') == 8 ? 'class="success"' : ""?>>
                   <td>8</td>
                   <td>렌탈관리자</td>
                 </tr>
@@ -228,7 +228,7 @@
                 <a href="<?=base_url('admin/Product/category')?>">카테고리 관리</a>
               </li>
               <li>
-                <a href="##">물품 리스트</a>
+                <a href="<?=base_url('admin/Product/goods')?>">물품 리스트</a>
               </li>
             </ul>
           </li>

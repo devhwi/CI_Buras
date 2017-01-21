@@ -90,6 +90,10 @@ class Product extends CI_Controller{
    * 물품 리스트
    */
   function goods() {
+    $view_params['product'] = $this->MProduct->get_product_list();
 
+    $this->load->view('admin/header');
+    $this->load->view('admin/product_list', $view_params);
+    $this->load->view('admin/footer');
   }
 }

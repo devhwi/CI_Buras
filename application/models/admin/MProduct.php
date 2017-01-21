@@ -7,21 +7,22 @@ class MProduct extends CI_Model{
     parent::__construct();
   }
 
-  function get_product_list($type, $genre) {
-    $sql  = "SELECT product_name
+  function get_product_list() {
+    $sql  = "SELECT product_id
+                  , product_name
+                  , product_seq
                   , product_type
+                  , (SELECT type_desc FROM type WHERE type_id = product_type) AS product_type_name
                   , product_genre
+                  , (SELECT genre_desc FROM genre WHERE genre_id = product_genre) AS product_genre_name
                   , product_img
                   , (SELECT COUNT(*) FROM product
                      WHERE product_status != 0
                      AND product_name = p.product_name
                      GROUP BY product_name) AS product_count
+                  , product_status
              FROM product p
-             WHERE 1=1
-             ";
-    $type != 0 ? $sql .= "AND product_type  = '$type'"  : $sql .= " ";
-    $type == 1 && $genre != 0 ? $sql .= "AND product_genre = '$genre'" : $sql .= " ";
-    $sql .= "GROUP BY product_name";
+             ORDER BY product_id";
 
     $query = $this->db->query($sql);
 
