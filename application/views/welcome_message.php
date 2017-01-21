@@ -85,6 +85,7 @@
 2017.01.18(수) : 게시판 상세 & 댓글, 관리자 로그인
 2017.01.19(목) : 관리자 메뉴, 회원 관리
 2017.01.20(금) : 관리자 메뉴 - 물품 카테고리 관리(보기, 추가, 삭제)
+2017.01.21(토) : 관리자 메뉴 - 물품 리스트(보기, 검색))
 </pre>
 		</code>
 
@@ -95,6 +96,6 @@
 					테스트 id : admin / pw : admin</code>
 	</div>
 
-	<p class="footer">Build by <a href="http://mismaven.kr"><strong style="color:#8f1022">MAVEN</strong></a></p>
+	<p class="footer">Build by <a href="http://mismaven.kr"><strong style="color:#8f1822">MAVEN</strong></a></p>
 </div>
 </div>
