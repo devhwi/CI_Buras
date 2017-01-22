@@ -114,4 +114,16 @@ class MProduct extends CI_Model{
             WHERE $product_key > $id";
     $query = $this->db->query($sql);
   }
+
+  function delete_goods($id, $seq) {
+    // delete product
+    $this->db->where('product_id', $id);
+    $this->db->delete('product');
+
+    // update seq
+    $sql = "UPDATE product
+            SET product_seq = product_seq - 1
+            WHERE product_seq > $seq";
+    $query = $this->db->query($sql);
+  }
 }

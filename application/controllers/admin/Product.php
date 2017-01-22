@@ -60,31 +60,31 @@ class Product extends CI_Controller{
   }
 
   /**
-   * 물품 카테고리 삭제
-   */
-   function delete_category() {
-     if(!($this->input->post('param_type') && ($this->input->post('type_id') || $this->input->post('genre_id')))) {
-       general_error_msg();
-     }
+  * 물품 카테고리 삭제
+  */
+  function delete_category() {
+    if(!($this->input->post('param_type') && ($this->input->post('type_id') || $this->input->post('genre_id')))) {
+      general_error_msg();
+    }
 
-     $id = "";
-     $target_table = "";
-     $param = $this->input->post('param_type');
-     switch($param) {
-       case "type":
-         $id = $this->input->post('type_id');
-         $target_table = "type";
-         break;
-       case "genre":
-         $id = $this->input->post('genre_id');
-         $target_table = "genre";
-         break;
-     }
+    $id = "";
+    $target_table = "";
+    $param = $this->input->post('param_type');
+    switch($param) {
+      case "type":
+      $id = $this->input->post('type_id');
+      $target_table = "type";
+      break;
+      case "genre":
+      $id = $this->input->post('genre_id');
+      $target_table = "genre";
+      break;
+    }
 
-     $this->MProduct->delete_category($target_table, $id);
+    $this->MProduct->delete_category($target_table, $id);
 
-     redirect('admin/Product/category', 'refresh');
-   }
+    redirect('admin/Product/category', 'refresh');
+  }
 
   /**
    * 물품 리스트
@@ -95,5 +95,34 @@ class Product extends CI_Controller{
     $this->load->view('admin/header');
     $this->load->view('admin/product_list', $view_params);
     $this->load->view('admin/footer');
+  }
+  /**
+   * 물품 추가
+   */
+  function add_goods() {
+
+  }
+
+  /**
+   * 물품 수정
+   */
+  function update_goods() {
+
+  }
+
+  /**
+   * 물품 삭제
+   */
+  function delete_goods() {
+    if(!($this->input->post('product_id'))) {
+      general_error_msg();
+    }
+
+    $id = $this->input->post('product_id');
+    $seq = $this->input->post('product_seq');
+
+    $this->MProduct->delete_goods($id, $seq);
+
+    redirect('admin/Product/goods', 'refresh');
   }
 }

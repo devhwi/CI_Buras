@@ -2,6 +2,11 @@
   .button-area {
     text-align: right;
   }
+
+  th,
+  .center-area {
+    text-align: center;
+  }
 </style>
 
 <div class="row">
@@ -18,20 +23,25 @@
         <th>재고번호</th>
         <th>상태</th>
         <th class="button-area">&nbsp;</th>
+        <th class="button-area">&nbsp;</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach($product as $k => $row) : ?>
       <tr>
-        <td><?=$row['product_id']?></td>
+        <td class="center-area"><?=$row['product_id']?></td>
         <td><?=$row['product_name']?></td>
-        <td><?=$row['product_type_name']?></td>
-        <td><?=$row['product_genre_name']?></td>
-        <td><?=$row['product_seq']?></td>
-        <td><?=$row['product_status']?></td>
+        <td class="center-area"><?=$row['product_type_name']?></td>
+        <td class="center-area"><?=$row['product_genre_name']?></td>
+        <td class="center-area"><?=$row['product_seq']?></td>
+        <td class="center-area"><?=$row['product_status']?></td>
         <td class="button-area">
-          <form class="" action="index.html" method="post">
+          <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#update_product">수정</button>
+        </td>
+        <td class="button-area">
+          <form class="" action="<?=base_url('admin/Product/delete_goods')?>" method="post" onsubmit="return confirm('해당 상품 정보 모두가 삭제됩니다. 계속하시겠습니까?');">
             <input type="hidden" name="product_id" value="<?=$row['product_id']?>">
+            <input type="hidden" name="product_seq" value="<?=$row['product_seq']?>">
             <button class="btn btn-danger" type="submit">삭제</button>
           </form>
         </td>
@@ -39,6 +49,9 @@
       <?php endforeach; ?>
     </tbody>
   </table>
+  <div align="right">
+    <button class="btn btn-outline btn-primary" type="button" data-toggle="modal" data-target="#add_product">물품 추가</button>
+  </div>
 </div>
 
 <!-- DataTables JavaScript -->
@@ -51,6 +64,5 @@ $(document).ready(function() {
     $('#productTable').DataTable({
         responsive: true
     });
-
 });
 </script>

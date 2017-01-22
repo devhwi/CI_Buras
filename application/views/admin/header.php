@@ -72,7 +72,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?=base_url('admin/Main')?>">Buras Admin v1.0</a>
+      <a class="navbar-brand" href="<?=base_url('admin/Main')?>">Buras Admin v0.1</a>
     </div>
     <!-- /.navbar-header -->
     <!-- 상단바 메뉴 시작 -->
@@ -229,6 +229,9 @@
               </li>
               <li>
                 <a href="<?=base_url('admin/Product/goods')?>">물품 리스트</a>
+              </li>
+              <li>
+                <a href="##">물품 이미지 관리</a>
               </li>
             </ul>
           </li>
