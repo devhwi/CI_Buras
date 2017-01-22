@@ -1,3 +1,9 @@
+<style media="screen">
+  .button-area {
+    text-align: right;
+  }
+</style>
+
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header">물품 리스트</h1>
@@ -11,6 +17,7 @@
         <th>쟝르</th>
         <th>재고번호</th>
         <th>상태</th>
+        <th class="button-area">&nbsp;</th>
       </tr>
     </thead>
     <tbody>
@@ -22,7 +29,12 @@
         <td><?=$row['product_genre_name']?></td>
         <td><?=$row['product_seq']?></td>
         <td><?=$row['product_status']?></td>
-
+        <td class="button-area">
+          <form class="" action="index.html" method="post">
+            <input type="hidden" name="product_id" value="<?=$row['product_id']?>">
+            <button class="btn btn-danger" type="submit">삭제</button>
+          </form>
+        </td>
       </tr>
       <?php endforeach; ?>
     </tbody>

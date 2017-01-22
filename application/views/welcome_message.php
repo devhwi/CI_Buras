@@ -56,19 +56,19 @@
 <body>
 
 <div class="container">
-<div id="container">
-	<h1>Welcome to Buras</h1>
+	<div id="container">
+		<h1>Welcome to Buras</h1>
 
-	<div id="body">
-		<p>Buras 홈페이지 구축 중입니다.</p>
+		<div id="body">
+			<p>Buras 홈페이지 구축 중입니다.</p>
 
-		<code>구축기간 : 2017.01.01 ~ 2017.01.31 (예상)</code>
+			<code>구축기간 : 2017.01.01 ~ 2017.01.31 (예상)</code>
 
-		<p>간단하게 진행상황을 볼 수 있습니다.</p>
-		<code><i class="fa fa-github" aria-hidden="true"></i>&nbsp;<a href="https://github.com/devhwi/CI_Buras">https://github.com/devhwi/CI_Buras</a></code>
+			<p>간단하게 진행상황을 볼 수 있습니다.</p>
+			<code><i class="fa fa-github" aria-hidden="true"></i>&nbsp;<a href="https://github.com/devhwi/CI_Buras">https://github.com/devhwi/CI_Buras</a></code>
 
-		<p>진행현황</p>
-		<code>
+			<p>진행현황</p>
+			<code>
 <!-- 진행 상황 메모 -->
 <pre>
 2017.01.02(월) : 요구사항 정리 및 플랜 작성
@@ -87,15 +87,15 @@
 2017.01.20(금) : 관리자 메뉴 - 물품 카테고리 관리(보기, 추가, 삭제)
 2017.01.21(토) : 관리자 메뉴 - 물품 리스트(보기, 검색))
 </pre>
-		</code>
+			</code>
 
-		<p>테스트 해보기</p>
-		<code><a href="http://buras.cafe24.com/Login">사용자 페이지</a><br>
-					테스트 id : test / pw : test</code>
-		<code><a href="http://buras.cafe24.com/admin/Login">관리자 페이지</a><br>
-					테스트 id : admin / pw : admin</code>
+			<p>테스트 해보기</p>
+			<code><a href="http://buras.cafe24.com/Login">사용자 페이지</a><br>
+						테스트 id : test / pw : test</code>
+			<code><a href="http://buras.cafe24.com/admin/Login">관리자 페이지</a><br>
+						테스트 id : admin / pw : admin</code>
+		</div>
+
+		<p class="footer">Build by <a href="http://mismaven.kr"><strong style="color:#8f1822">MAVEN</strong></a></p>
 	</div>
-
-	<p class="footer">Build by <a href="http://mismaven.kr"><strong style="color:#8f1822">MAVEN</strong></a></p>
-</div>
 </div>
