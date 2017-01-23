@@ -24,7 +24,7 @@ class Product extends CI_Controller{
    * 물품 카테고리 리스트
    */
   function category() {
-    $view_params['type'] = $this->MProduct->get_type();;
+    $view_params['type'] = $this->MProduct->get_type();
     $view_params['genre'] = $this->MProduct->get_genre();
 
     $this->load->view('admin/header');
@@ -91,6 +91,8 @@ class Product extends CI_Controller{
    */
   function goods() {
     $view_params['product'] = $this->MProduct->get_product_list();
+    $view_params['type'] = $this->MProduct->get_type();;
+    $view_params['genre'] = $this->MProduct->get_genre();
 
     $this->load->view('admin/header');
     $this->load->view('admin/product_list', $view_params);
@@ -100,14 +102,35 @@ class Product extends CI_Controller{
    * 물품 추가
    */
   function add_goods() {
+    if( ! ($this->input->post('product_id'))) {
+      general_error_msg();
+    }
 
-  }
+    $dttm = date("Y-m-d H:i:s");
 
-  /**
-   * 물품 수정
-   */
-  function update_goods() {
+    if($this->input->post('additional') == "on") {
+      $name = $this->MProduct->get_exist_product_name($this->input->post('product_id'));
+    }else {
+      $name = $this->input->post('product_name');
+    }
 
+    for($i = 1; $i <= $this->input->post('product_count'); $i++) {
+      $seq =  $this->MProduct->get_max_seq_by_product($this->input->post('product_id'));
+
+      $data = array(
+        'product_id' => $this->input->post('product_id')
+      , 'product_name' => $name
+      , 'product_seq' => $seq
+      , 'product_type' => $this->input->post('product_type')
+      , 'product_genre' => $this->input->post('product_genre')
+      , 'product_status' => 1
+      , 'product_dttm' => $dttm
+      );
+
+      $this->MProduct->add_goods($data);
+    }
+
+    redirect('admin/Product/goods', 'refresh');
   }
 
   /**

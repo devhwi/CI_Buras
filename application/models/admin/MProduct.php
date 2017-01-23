@@ -41,17 +41,6 @@ class MProduct extends CI_Model{
     return $query->row();
   }
 
-  function get_detail_each_status($name) {
-    $sql = "SELECT product_name
-                 , product_seq
-                 , product_status
-            FROM product p
-            WHERE product_name = '$name'
-            ";
-    $query = $this->db->query($sql);
-    return $query->result_array();
-  }
-
   function get_id($name, $seq) {
     $sql = "SELECT product_id
             FROM product
@@ -115,6 +104,10 @@ class MProduct extends CI_Model{
     $query = $this->db->query($sql);
   }
 
+  function add_goods($data) {
+    $this->db->insert('product', $data);
+  }
+
   function delete_goods($id, $seq) {
     // delete product
     $this->db->where('product_id', $id);
@@ -125,5 +118,23 @@ class MProduct extends CI_Model{
             SET product_seq = product_seq - 1
             WHERE product_seq > $seq";
     $query = $this->db->query($sql);
+  }
+
+  function get_max_seq_by_product($id) {
+    $sql = "SELECT IFNULL(MAX(product_seq), 0) + 1 AS max_seq
+            FROM product
+            WHERE product_id = '$id'";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+
+    return $row->max_seq;
+  }
+
+  function get_exist_product_name($id) {
+    $sql = "SELECT product_name FROM product WHERE product_id = '$id'";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+
+    return $row->product_name;
   }
 }

@@ -23,7 +23,6 @@
         <th>재고번호</th>
         <th>상태</th>
         <th class="button-area">&nbsp;</th>
-        <th class="button-area">&nbsp;</th>
       </tr>
     </thead>
     <tbody>
@@ -35,9 +34,6 @@
         <td class="center-area"><?=$row['product_genre_name']?></td>
         <td class="center-area"><?=$row['product_seq']?></td>
         <td class="center-area"><?=$row['product_status']?></td>
-        <td class="button-area">
-          <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#update_product">수정</button>
-        </td>
         <td class="button-area">
           <form class="" action="<?=base_url('admin/Product/delete_goods')?>" method="post" onsubmit="return confirm('해당 상품 정보 모두가 삭제됩니다. 계속하시겠습니까?');">
             <input type="hidden" name="product_id" value="<?=$row['product_id']?>">
@@ -61,8 +57,83 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#productTable').DataTable({
-        responsive: true
-    });
+  $('#productTable').DataTable({
+    responsive: true
+  });
+  $('.edit-btn').click(function () {
+    var currentTD = $(this).parents('tr').find('td');
+    if ($(this).html() == '수정') {
+      $.each(currentTD, function () {
+        $(this).prop('contenteditable', true)
+      });
+    } else {
+      $.each(currentTD, function () {
+        $(this).prop('contenteditable', false)
+      });
+    }
+
+    $(this).html($(this).html() == '수정' ? '저장' : '수정')
+  });
+});
+</script>
+
+<!-- Add Modal -->
+<div class="modal fade" id="add_product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">물품 추가</h4>
+      </div>
+      <form class="" action="<?=base_url('admin/Product/add_goods')?>" method="post">
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="">물품코드</label>
+          <input class="form-control" type="text" name="product_id" value="" required>
+        </div>
+        <div class="form-group">
+          <label for="">물품명</label>
+          <input id="name_area" class="form-control" type="text" name="product_name" value="" required>
+          <input id="chk_additional" type="checkbox" name="additional">&nbsp;기존 물품 추가
+        </div>
+        <div class="form-group">
+          <label for="">종류</label>
+          <select class="form-control" name="product_type">
+            <?php foreach($type as $k => $row) : ?>
+            <option value="<?=$row['type_id']?>"><?=$row['type_desc']?></option>
+            <?php endforeach ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">쟝르</label>
+          <select class="form-control" name="product_genre">
+            <?php foreach($genre as $k => $row) : ?>
+            <option value="<?=$row['genre_id']?>"><?=$row['genre_desc']?></option>
+            <?php endforeach ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">수량</label>
+          <input class="form-control" type="number" name="product_count" value="1" min="1" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+        <button type="submit" class="btn btn-primary">추가하기</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script type="text/javascript">
+$('#chk_additional').change(function() {
+  if($(this).is(':checked')) {
+    $('#name_area').attr('disabled', true);
+  }else{
+    $('#name_area').attr('disabled', false);
+  }
 });
 </script>
