@@ -128,6 +128,7 @@ $(document).ready(function() {
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
 <script type="text/javascript">
 $('#chk_additional').change(function() {
   if($(this).is(':checked')) {

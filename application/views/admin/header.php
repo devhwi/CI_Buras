@@ -231,7 +231,7 @@
                 <a href="<?=base_url('admin/Product/goods')?>">물품 리스트</a>
               </li>
               <li>
-                <a href="##">물품 이미지 관리</a>
+                <a href="<?=base_url('admin/Image')?>">물품 이미지 관리</a>
               </li>
             </ul>
           </li>
