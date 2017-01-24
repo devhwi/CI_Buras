@@ -13,7 +13,7 @@ class MImage extends CI_Model{
                  , image_name
             FROM product_image i JOIN product p ON image_ref_product = product_id
             WHERE product_id = '$id'
-            GROUP BY image_name";
+            GROUP BY image_id";
     $query = $this->db->query($sql);
 
     return $query->result_array();
@@ -26,5 +26,19 @@ class MImage extends CI_Model{
     $query = $this->db->query($sql);
 
     return $query->result_array();
+  }
+
+  function get_max_seq_of_image($id) {
+    $sql = "SELECT IFNULL(MAX(image_seq), 0) + 1 AS max_seq
+            FROM product_image
+            WHERE image_ref_product = '$id'";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+
+    return $row->max_seq;
+  }
+
+  function add_image($data){
+    $this->db->insert('product_image',$data);
   }
 }

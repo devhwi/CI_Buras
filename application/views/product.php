@@ -37,9 +37,9 @@
   <?php foreach($list as $k => $row) : ?>
   <div class="col-md-3">
     <div class="card text-xs-center">
-      <a class="plink" href="<?=base_url('Product/detail/'.$row['product_name'])?>"><img class="card-img-top" src="<?=base_url('assets/img/product/'.$row['product_img'])?>" alt=""></a>
+      <a class="plink" href="<?=base_url('Product/detail/'.$row['product_id'])?>"><img class="card-img-top" src="<?=base_url('assets/img/product/'.$row['product_img'])?>" alt=""></a>
       <div class="card-block">
-        <a class="plink" href="<?=base_url('Product/detail/'.$row['product_name'])?>"><h5 class="card-title"><?=$row['product_name']?></h5></a>
+        <a class="plink" href="<?=base_url('Product/detail/'.$row['product_id'])?>"><h5 class="card-title"><?=$row['product_name']?></h5></a>
         <p class="card-text">재고 : <?=$row['product_count']?></p>
       </div>
     </div>

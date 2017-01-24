@@ -24,6 +24,10 @@
 
   }
 
+  .product-img > img {
+    margin-bottom: 1em;
+  }
+
   @media (max-width: 767px) {
     .detail-top {
       margin-top: 1em;
@@ -58,5 +62,14 @@
       </li>
       <?php endforeach; ?>
     </ul>
+  </div>
+  <div class="col-md-12">
+    <h5>물품 이미지</h5>
+    <div class="divider"></div>
+    <div class="product-img" align="center">
+      <?php foreach($image as $k => $row) : ?>
+        <img src="<?=base_url('assets/img/product/'.$row['image_name'])?>" alt="">
+      <?php endforeach; ?>
+    </div>
   </div>
 </div>

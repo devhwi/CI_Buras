@@ -11,48 +11,9 @@ class Product extends CI_Controller{
       session_error_msg();
     }
     $this->load->model('MProduct');
-    // $this->load->library('pagination');
   }
 
   function list() {
-    // pagination 고민중..
-    // $config['per_page'] = 1;
-    // $config['uri_segment'] = 3;
-    // $config['num_links'] = 2;
-    // $config['page_query_string'] = TRUE;
-    // $config['total_rows'] = 1000;
-    //
-    // $config['query_string_segment'] = 'page';
-    //
-    // $config['full_tag_open'] = '<div class="pagination"><ul>';
-    // $config['full_tag_close'] = '</ul></div><!--pagination-->';
-    //
-    // $config['first_link'] = '&laquo; First';
-    // $config['first_tag_open'] = '<li class="prev page">';
-    // $config['first_tag_close'] = '</li>';
-    //
-    // $config['last_link'] = 'Last &raquo;';
-    // $config['last_tag_open'] = '<li class="next page">';
-    // $config['last_tag_close'] = '</li>';
-    //
-    // $config['next_link'] = 'Next &rarr;';
-    // $config['next_tag_open'] = '<li class="next page">';
-    // $config['next_tag_close'] = '</li>';
-    //
-    // $config['prev_link'] = '&larr; Previous';
-    // $config['prev_tag_open'] = '<li class="prev page">';
-    // $config['prev_tag_close'] = '</li>';
-    //
-    // $config['cur_tag_open'] = '<li class="active"><a href="">';
-    // $config['cur_tag_close'] = '</a></li>';
-    //
-    // $config['num_tag_open'] = '<li class="page">';
-    // $config['num_tag_close'] = '</li>';
-    //
-    // $config['anchor_class'] = 'follow_link';
-    // $this->pagination->initialize($config);
-    // echo $this->pagination->create_links();
-
     $genre = $this->input->post('genre');
     $type  = $this->input->post('type');
 
@@ -74,10 +35,11 @@ class Product extends CI_Controller{
       general_error_msg();
     }
 
-    $name = $this->uri->segment(3);
+    $id = $this->uri->segment(3);
 
-    $view_params['detail'] = $this->MProduct->get_detail($name);
-    $view_params['status'] = $this->MProduct->get_detail_each_status($name);
+    $view_params['detail'] = $this->MProduct->get_detail($id);
+    $view_params['status'] = $this->MProduct->get_detail_each_status($id);
+    $view_params['image'] = $this->MProduct->get_image_except_thumbnail($id);
 
     $this->load->view('header');
     $this->load->view('product_detail', $view_params);

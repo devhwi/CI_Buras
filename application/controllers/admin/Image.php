@@ -37,6 +37,71 @@ class Image extends CI_Controller{
   }
 
   function upload() {
+    // Get max sequence for product image
+    $product_id = $this->input->post('product_id');
 
+    // file upload config
+    $config['upload_path'] = './assets/img/product/';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg|GIF|JPG|JPEG|PNG';
+    $config['max_size'] = "4096";
+    $config['max_width'] = "4096";
+    $config['max_height'] = "4096";
+    $config['remove_spaces'] = TRUE;
+
+    $this->load->library('upload', $config);
+
+    $files_name = $_FILES['product_image']['name'];
+    $files = $_FILES['product_image'];
+
+    if(!is_array($files_name)) {
+      if(! $this->upload->do_upload('product_image') ) {
+        echo "<script>alert('파일 업로드에 실패하였습니다.');</script>";
+        redirect('admin/Image', 'refresh');
+      } else {
+        $uploaded_file = $this->upload->data();
+        $file_name = $uploaded_file['file_name'];
+        echo $file_name;
+
+        $max_seq = $this->MImage->get_max_seq_of_image($product_id);
+
+        $data = array(
+          'image_name'        => $file_name
+        , 'image_ref_product' => $product_id
+        , 'image_seq'         => $max_seq
+        );
+
+        $this->MImage->add_image($data);
+        redirect('admin/Image', 'refresh');
+      }
+    } else if ( count($files_name) > 0 ) {
+      foreach( $files_name as $k => $val ) {
+        $_FILES['image']['name']     = $files['name'][$k];
+        $_FILES['image']['type']     = $files['type'][$k];
+        $_FILES['image']['tmp_name'] = $files['tmp_name'][$k];
+        $_FILES['image']['error']    = $files['error'][$k];
+        $_FILES['image']['size']     = $files['size'][$k];
+
+        if (! $this->upload->do_upload('image') ) {
+          echo "<script>alert('파일 업로드에 실패하였습니다.');</script>";
+          echo $this->upload->display_errors();
+          redirect('admin/Image', 'refresh');
+        } else {
+          $uploaded_file = $this->upload->data();
+          $file_name = $uploaded_file['file_name'];
+          echo $file_name;
+
+          $max_seq = $this->MImage->get_max_seq_of_image($product_id);
+
+          $data = array(
+            'image_name'        => $file_name
+          , 'image_ref_product' => $product_id
+          , 'image_seq'         => $max_seq
+          );
+
+          $this->MImage->add_image($data);
+          redirect('admin/Image', 'refresh');
+        }
+      }
+    }
   }
 }

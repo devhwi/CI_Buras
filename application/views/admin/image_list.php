@@ -24,7 +24,7 @@
     </form>
   </div>
   <div class="col-md-9">
-    <button class="btn btn-primary" type="button">이미지 추가</button>
+    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#add_image" <?=$selected_id == "" ? 'disabled' : ''?>>이미지 추가</button>
   </div>
 </div>
 <div class="row">
@@ -35,10 +35,37 @@
   <?php else: ?>
   <?php foreach($image_list as $k => $row) : ?>
   <div class="col-md-3">
-    <img class="img-thumbnail" src="<?=base_url('assets/img/product/'.'sample1.jpg')?>" alt="">
+    <img class="img-thumbnail" src="<?=base_url('assets/img/product/'.$row['image_name'])?>" alt="">
+    <a href="" class="btn btn-danger" style="width:100%;margin-bottom: 0.75em;">삭제</a>
   </div>
   <?php endforeach; ?>
   <?php endif; ?>
 </div>
-<script type="text/javascript">
-</script>
+
+<!-- Add Modal -->
+<div class="modal fade" id="add_image" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">물품 이미지 추가</h4>
+      </div>
+      <form action="<?=base_url('admin/Image/upload')?>" method="post" enctype="multipart/form-data">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="">파일 추가</label>
+            <input type="hidden" name="product_id" value="<?=$selected_id?>">
+            <input class="form-control" type="file" name="product_image[]" multiple required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+          <button type="submit" class="btn btn-primary">추가하기</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
