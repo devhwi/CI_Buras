@@ -9,8 +9,10 @@ class MImage extends CI_Model{
 
   function get_product_list_by_id($id) {
     $sql = "SELECT product_id
+                 , image_seq
                  , image_ref_product
                  , image_name
+                 , image_id
             FROM product_image i JOIN product p ON image_ref_product = product_id
             WHERE product_id = '$id'
             GROUP BY image_id";
@@ -40,5 +42,22 @@ class MImage extends CI_Model{
 
   function add_image($data){
     $this->db->insert('product_image',$data);
+  }
+
+  function get_ftp_info() {
+    $sql = "SELECT code_desc
+            FROM code_table
+            WHERE code_group = 'ftp'
+            ORDER BY code_seq";
+    $query = $this->db->query($sql);
+
+    return $query->result_array();
+  }
+
+  function delete_image($id, $seq) {
+    $sql = "DELETE FROM product_image
+            WHERE image_id = '$id'
+            AND image_seq = '$seq'";
+    $query = $this->db->query($sql);
   }
 }

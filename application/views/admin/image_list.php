@@ -36,7 +36,12 @@
   <?php foreach($image_list as $k => $row) : ?>
   <div class="col-md-3">
     <img class="img-thumbnail" src="<?=base_url('assets/img/product/'.$row['image_name'])?>" alt="">
-    <a href="" class="btn btn-danger" style="width:100%;margin-bottom: 0.75em;">삭제</a>
+    <form action="<?=base_url('admin/Image/delete')?>" method="post" onsubmit="return confirm('삭제하시겠습니까?');">
+      <input type="hidden" name="image_id" value="<?=$row['image_id']?>">
+      <input type="hidden" name="image_name" value="<?=$row['image_name']?>">
+      <input type="hidden" name="image_seq" value="<?=$row['image_seq']?>">
+      <button type="submit" class="btn btn-danger" style="width:100%;margin-bottom: 0.75em;">삭제</button>
+    </form>
   </div>
   <?php endforeach; ?>
   <?php endif; ?>

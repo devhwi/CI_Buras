@@ -104,4 +104,36 @@ class Image extends CI_Controller{
       }
     }
   }
+
+  function delete() {
+    if(! $this->input->post('image_id')) {
+      general_error_msg();
+    }
+
+    $this->load->library('ftp');
+    $ftp_info = $this->MImage->get_ftp_info();
+    $config['hostname'] = $ftp_info[0]['code_desc'];
+    $config['username'] = $ftp_info[1]['code_desc'];
+    $config['password'] = $ftp_info[2]['code_desc'];
+    $config['port']     = 21;
+    $config['passive']  = FALSE;
+    $config['debug']    = TRUE;
+
+    $path = './assets/img/product/';
+    $file_name = $this->input->post('image_name');
+
+    $this->ftp->connect($config);
+    if($this->ftp->delete_file($path.$file_name)) {
+      // success
+      echo 'success';
+
+      // delete DB
+      $this->MImage->delete_image($this->input->post('image_id'), $this->input->post('image_seq'));
+      $this->ftp->close();
+
+      redirect('admin/Image' 'refresh');
+    }else{
+      echo 'fail';
+    }
+  }
 }
