@@ -46,8 +46,10 @@
     <form class="" action="<?=base_url('Rental/register')?>" method="post">
       <input type="hidden" name="rental_user" value="<?=$this->session->userdata('user_id')?>">
       <input type="hidden" name="rental_product" value="<?=$id?>">
+      <input type="hidden" name="product_seq" value="<?=$detail->product_seq?>">
+      <input type="hidden" name="type" value="<?=$detail->product_type_id?>">
       <button class="btn btn-primary col-md-6" type="submit">신청하기</button>
-      <button class="btn btn-secondary col-md-6" type="button">취소하기</button>
+      <button class="btn btn-secondary col-md-6" type="button" onclick="history.back(-1);">취소하기</button>
     </form>
   </div>
 </div>

@@ -22,16 +22,17 @@ class Rental extends CI_Controller{
 
     $product = $this->input->post('rental_product');
     $user = $this->input->post('rental_user');
+    $product_seq = $this->input->post('product_seq');
     $dttm = date('Y-m-d H:i:s');
 
-    if($this->MRental->check_product_valid($product) == 0) {
+    if($this->MRental->check_product_valid($product, $product_seq) == 0) {
       echo "<script>alert('이미 대여중인 품목입니다.');</script>";
       redirect('Product/list', 'refresh');
     }
 
     $data = array(
       'rental_user' => $user,
-      'rental_product' => $product,
+      'rental_product' => $product.'-'.$product_seq,
       'rental_dttm' => $dttm,
       'rental_status' => 0
     );
@@ -40,13 +41,15 @@ class Rental extends CI_Controller{
     $rental_id = $this->MRental->register_rental($data);
 
     if($rental_id > 0) {
-      $this->MRental->update_product_status($product);
+      $this->MRental->update_product_status($product, $product_seq);
+
+      $price = $this->input->post('product_type_id') == 1 ? 5000 : 1500;
 
       // add to finance table
       $data = array(
         'finance_ref' => $rental_id,
         'finance_status' => 0,
-        'finance_sum' => 0, // 추후 금액 계산 과정 필요함(의상, 슈즈)
+        'finance_sum' => $price, // 의상 == 5000 / 슈즈 == 1500
         'finance_dttm' => $dttm
       );
       $this->MFinance->add_finance($data);

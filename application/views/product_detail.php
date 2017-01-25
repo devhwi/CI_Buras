@@ -57,7 +57,7 @@
         <?php if($row['product_status'] == 0) : ?>
         <span class="badge badge-danger">대여중</span>
         <?php else : ?>
-        <a href="<?=base_url('Product/request/'.$row['product_name'].'/'.$row['product_seq'])?>"><span class="badge badge-success">대여 가능</span></a>
+        <a href="<?=base_url('Product/request/'.$row['product_id'].'/'.$row['product_seq'])?>"><span class="badge badge-success">대여 가능</span></a>
         <?php endif; ?>
       </li>
       <?php endforeach; ?>

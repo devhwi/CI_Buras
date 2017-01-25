@@ -8,7 +8,8 @@ class MProduct extends CI_Model{
   }
 
   function get_product_list($type, $genre) {
-    $sql  = "SELECT product_id, product_name
+    $sql  = "SELECT product_id
+                  , product_name
                   , product_type
                   , product_genre
                   , (SELECT image_name FROM product_image WHERE image_ref_product = product_id GROUP BY image_ref_product) AS product_img
@@ -31,9 +32,12 @@ class MProduct extends CI_Model{
   function get_detail($id) {
     $sql = "SELECT product_id
                  , product_name
+                 , (SELECT genre_id FROM genre WHERE genre_id = p.product_genre) AS product_genre_id
                  , (SELECT genre_desc FROM genre WHERE genre_id = p.product_genre) AS product_genre
+                 , (SELECT type_id FROM type WHERE type_id = p.product_type) AS product_type_id
                  , (SELECT type_desc  FROM type  WHERE type_id  = p.product_type)  AS product_type
                  , (SELECT image_name FROM product_image WHERE image_ref_product = product_id AND image_seq = 1) AS product_img
+                 , product_seq
             FROM product p
             WHERE product_id = '$id'
             GROUP BY product_id";
@@ -42,7 +46,8 @@ class MProduct extends CI_Model{
   }
 
   function get_detail_each_status($id) {
-    $sql = "SELECT product_name
+    $sql = "SELECT product_id
+                 , product_name
                  , product_seq
                  , product_status
             FROM product p
@@ -50,17 +55,6 @@ class MProduct extends CI_Model{
             ";
     $query = $this->db->query($sql);
     return $query->result_array();
-  }
-
-  function get_id($name, $seq) {
-    $sql = "SELECT product_id
-            FROM product
-            WHERE product_name = '$name'
-            AND product_seq = $seq";
-    $query = $this->db->query($sql);
-    $row = $query->row();
-
-    return $row->product_id;
   }
 
   function get_genre() {

@@ -85,7 +85,7 @@
         <?php foreach($my_all as $k=>$row) : ?>
           <?php $status_badge = $row['rental_status'] == 0 ? '<span class="badge badge-danger">대여중</span>' : '<span class="badge badge-success">반납완료</span>'; ?>
           <tr>
-            <td><span class="mobile-shown"><i class="fa fa-list-ol" aria-hidden="true"></i> 번호 :&nbsp;</span><?=$k?></td>
+            <td><span class="mobile-shown"><i class="fa fa-list-ol" aria-hidden="true"></i> 번호 :&nbsp;</span><?=$k+1?></td>
             <td><span class="mobile-shown"><i class="fa fa-picture-o" aria-hidden="true"></i> 이미지&nbsp;</span><img class="img-thumbnail" src="<?=base_url('assets/img/product/'.$row['product_img'])?>" alt="" /></td>
             <td class="no-center"><span class="mobile-shown"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 품목명 :&nbsp;</span><?=$row['product_name']?></td>
             <td><span class="mobile-shown"><i class="fa fa-clock-o" aria-hidden="true"></i> 렌탈일시 :&nbsp;</span><?=$row['rental_dttm']?></td>
@@ -113,7 +113,7 @@
         <?php foreach($my_ing as $k=>$row) : ?>
           <?php $status_badge = $row['rental_status'] == 0 ? '<span class="badge badge-danger">대여중</span>' : '<span class="badge badge-success">반납완료</span>'; ?>
           <tr>
-            <td><span class="mobile-shown"><i class="fa fa-list-ol" aria-hidden="true"></i> 번호 :&nbsp;</span><?=$k?></td>
+            <td><span class="mobile-shown"><i class="fa fa-list-ol" aria-hidden="true"></i> 번호 :&nbsp;</span><?=$k+1?></td>
             <td><span class="mobile-shown"><i class="fa fa-picture-o" aria-hidden="true"></i> 이미지&nbsp;</span><img class="img-thumbnail" src="<?=base_url('assets/img/product/'.$row['product_img'])?>" alt="" /></td>
             <td class="no-center"><span class="mobile-shown"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 품목명 :&nbsp;</span><?=$row['product_name']?></td>
             <td><span class="mobile-shown"><i class="fa fa-clock-o" aria-hidden="true"></i> 렌탈일시 :&nbsp;</span><?=$row['rental_dttm']?></td>
@@ -141,7 +141,7 @@
         <?php foreach($my_ed as $k=>$row) : ?>
           <?php $status_badge = $row['rental_status'] == 0 ? '<span class="badge badge-danger">대여중</span>' : '<span class="badge badge-success">반납완료</span>'; ?>
           <tr>
-            <td><span class="mobile-shown"><i class="fa fa-list-ol" aria-hidden="true"></i> 번호 :&nbsp;</span><?=$k?></td>
+            <td><span class="mobile-shown"><i class="fa fa-list-ol" aria-hidden="true"></i> 번호 :&nbsp;</span><?=$k+1?></td>
             <td><span class="mobile-shown"><i class="fa fa-picture-o" aria-hidden="true"></i> 이미지&nbsp;</span><img class="img-thumbnail" src="<?=base_url('assets/img/product/'.$row['product_img'])?>" alt="" /></td>
             <td class="no-center"><span class="mobile-shown"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 품목명 :&nbsp;</span><?=$row['product_name']?></td>
             <td><span class="mobile-shown"><i class="fa fa-clock-o" aria-hidden="true"></i> 렌탈일시 :&nbsp;</span><?=$row['rental_dttm']?></td>

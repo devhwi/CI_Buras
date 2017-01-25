@@ -15,7 +15,7 @@ class MProduct extends CI_Model{
                   , (SELECT type_desc FROM type WHERE type_id = product_type) AS product_type_name
                   , product_genre
                   , (SELECT genre_desc FROM genre WHERE genre_id = product_genre) AS product_genre_name
-                  , product_img
+                  , (SELECT image_name FROM product_image WHERE image_ref_product = product_id AND image_seq = 1) AS prduct_image
                   , (SELECT COUNT(*) FROM product
                      WHERE product_status != 0
                      AND product_name = p.product_name

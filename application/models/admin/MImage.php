@@ -60,4 +60,11 @@ class MImage extends CI_Model{
             AND image_seq = '$seq'";
     $query = $this->db->query($sql);
   }
+
+  function update_image_seq($id, $seq) {
+    $sql = "UPDATE product_image
+            SET image_seq = image_seq - 1
+            WHERE image_id > $id";
+    $query = $this->db->query($sql);
+  }
 }

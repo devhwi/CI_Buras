@@ -110,6 +110,9 @@ class Image extends CI_Controller{
       general_error_msg();
     }
 
+    $id = $this->input->post('image_id');
+    $seq = $this->input->post('image_seq');
+
     $this->load->library('ftp');
     $ftp_info = $this->MImage->get_ftp_info();
     $config['hostname'] = $ftp_info[0]['code_desc'];
@@ -128,10 +131,14 @@ class Image extends CI_Controller{
       echo 'success';
 
       // delete DB
-      $this->MImage->delete_image($this->input->post('image_id'), $this->input->post('image_seq'));
+      $this->MImage->delete_image($id, $seq);
+
+      // update seq
+      $this->MImage->update_image_seq($id, $seq);
+
       $this->ftp->close();
 
-      redirect('admin/Image' 'refresh');
+      redirect('admin/Image', 'refresh');
     }else{
       echo 'fail';
     }

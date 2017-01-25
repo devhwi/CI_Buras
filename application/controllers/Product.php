@@ -51,13 +51,12 @@ class Product extends CI_Controller{
       general_error_msg();
     }
 
-    $name = $this->uri->segment(3);
+    $id = $this->uri->segment(3);
     $seq = $this->uri->segment(4);
 
-    $view_params['name'] = $name;
     $view_params['seq'] = $seq;
-    $view_params['detail'] = $this->MProduct->get_detail($name);
-    $view_params['id'] = $this->MProduct->get_id($name, $seq);;
+    $view_params['id'] = $id;
+    $view_params['detail'] = $this->MProduct->get_detail($id);
 
     $this->load->view('header');
     $this->load->view('product_request', $view_params);
