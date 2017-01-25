@@ -236,7 +236,7 @@
             </ul>
           </li>
           <li>
-            <a href="##"><i class="fa fa-expand fa-fw"></i> 렌탈 관리</a>
+            <a href="<?=base_url('admin/Rental')?>"><i class="fa fa-expand fa-fw"></i> 렌탈 관리</a>
           </li>
           <li>
             <a href="##"><i class="fa fa-krw fa-fw"></i> 회계 관리</a>
