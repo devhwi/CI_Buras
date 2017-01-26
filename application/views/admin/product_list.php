@@ -33,12 +33,16 @@
         <td class="center-area"><?=$row['product_type_name']?></td>
         <td class="center-area"><?=$row['product_genre_name']?></td>
         <td class="center-area"><?=$row['product_seq']?></td>
-        <td class="center-area"><?=$row['product_status']?></td>
+        <td class="center-area">
+          <button type="button" class="btn btn-outline <?=$row['product_status'] == 1 ? 'btn-success' : 'btn-danger'?>" disabled>
+          <?=$row['product_status'] == 1 ? '대여가능' : '대여중' ?>
+          </button>
+        </td>
         <td class="button-area">
           <form class="" action="<?=base_url('admin/Product/delete_goods')?>" method="post" onsubmit="return confirm('해당 상품 정보 모두가 삭제됩니다. 계속하시겠습니까?');">
             <input type="hidden" name="product_id" value="<?=$row['product_id']?>">
             <input type="hidden" name="product_seq" value="<?=$row['product_seq']?>">
-            <button class="btn btn-danger" type="submit">삭제</button>
+            <button class="btn btn-danger" type="submit" <?=$row['product_status'] == 1 ? '' : 'disabled'?>>삭제</button>
           </form>
         </td>
       </tr>
@@ -49,33 +53,6 @@
     <button class="btn btn-outline btn-primary" type="button" data-toggle="modal" data-target="#add_product">물품 추가</button>
   </div>
 </div>
-
-<!-- DataTables JavaScript -->
-<script src="<?=base_url('assets/admin/vendor/datatables/js/jquery.dataTables.js')?>"></script>
-<script src="<?=base_url('assets/admin/vendor/datatables-plugins/dataTables.bootstrap.min.js')?>"></script>
-<script src="<?=base_url('assets/admin/vendor/datatables-responsive/dataTables.responsive.js')?>"></script>
-
-<script type="text/javascript">
-$(document).ready(function() {
-  $('#productTable').DataTable({
-    responsive: true
-  });
-  $('.edit-btn').click(function () {
-    var currentTD = $(this).parents('tr').find('td');
-    if ($(this).html() == '수정') {
-      $.each(currentTD, function () {
-        $(this).prop('contenteditable', true)
-      });
-    } else {
-      $.each(currentTD, function () {
-        $(this).prop('contenteditable', false)
-      });
-    }
-
-    $(this).html($(this).html() == '수정' ? '저장' : '수정')
-  });
-});
-</script>
 
 <!-- Add Modal -->
 <div class="modal fade" id="add_product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -129,6 +106,11 @@ $(document).ready(function() {
 </div>
 <!-- /.modal -->
 
+<!-- DataTables JavaScript -->
+<script src="<?=base_url('assets/admin/vendor/datatables/js/jquery.dataTables.js')?>"></script>
+<script src="<?=base_url('assets/admin/vendor/datatables-plugins/dataTables.bootstrap.min.js')?>"></script>
+<script src="<?=base_url('assets/admin/vendor/datatables-responsive/dataTables.responsive.js')?>"></script>
+
 <script type="text/javascript">
 $('#chk_additional').change(function() {
   if($(this).is(':checked')) {
@@ -136,5 +118,27 @@ $('#chk_additional').change(function() {
   }else{
     $('#name_area').attr('disabled', false);
   }
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#productTable').DataTable({
+    responsive: true
+  });
+  $('.edit-btn').click(function () {
+    var currentTD = $(this).parents('tr').find('td');
+    if ($(this).html() == '수정') {
+      $.each(currentTD, function () {
+        $(this).prop('contenteditable', true)
+      });
+    } else {
+      $.each(currentTD, function () {
+        $(this).prop('contenteditable', false)
+      });
+    }
+
+    $(this).html($(this).html() == '수정' ? '저장' : '수정')
+  });
 });
 </script>

@@ -6,6 +6,10 @@
   #rentalTable td {
     vertical-align: middle;
   }
+
+  button {
+    width: 100%;
+  }
 </style>
 
 <div class="row">
@@ -35,10 +39,14 @@
         <td><?=$row['rental_dttm']?></td>
         <td><?=$row['rental_return_dttm']?></td>
         <td>
-          <select class="form-control" style="width:100%;">
-            <option value="0" <?=$row['rental_status'] == 0 ? 'selected' : ''?>>대여중</option>
-            <option value="1" <?=$row['rental_status'] == 0 ? '' : 'selected'?>>반납</option>
-          </select>
+          <?php if($row['rental_status'] == 0) : ?>
+          <form class="" action="<?=base_url('admin/Rental/update_status')?>" method="post" onsubmit="return confirm('반납처리 하시겠습니까? 되돌릴 수 없습니다.');">
+            <input type="hidden" name="rental_id" value="<?=$row['rental_id']?>">
+            <button type="submit" class="btn btn-primary">반납처리</button>
+          </form>
+          <?php else : ?>
+          <button type="button" class="btn btn-success" disabled>반납완료</button>
+          <?php endif; ?>
         </td>
         <td>
           <form action="#" method="post" onsubmit="return confirm('삭제하시겠습니까?');">

@@ -25,4 +25,31 @@ class MRental extends CI_Model{
 
     return $query->result_array();
   }
+
+  function update_status($id) {
+    $sql = "UPDATE rental
+            SET rental_status = 1
+              , rental_return_dttm = NOW()
+            WHERE rental_id = '$id'";
+    $query = $this->db->query($sql);
+  }
+
+  function get_rental_product($id) {
+    $sql = "SELECT rental_product
+            FROM rental
+            WHERE rental_id = '$id'";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+
+    return $row->rental_product;
+  }
+
+  function update_product_status($id, $seq) {
+    $int_seq = intval($seq);
+    $sql = "UPDATE product
+            SET product_status = 1
+            WHERE product_id = '$id'
+            AND product_seq = $int_seq";
+    $query = $this->db->query($sql);
+  }
 }

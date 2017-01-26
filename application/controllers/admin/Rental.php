@@ -29,7 +29,24 @@ class Rental extends CI_Controller{
   }
 
   function update_status() {
+    if(! $this->input->post('rental_id')) {
+      general_error_msg();
+    }
 
+    $id = $this->input->post('rental_id');
+
+    // update status
+    $this->MRental->update_status($id);
+
+    // update product status
+    $rental_product = $this->MRental->get_rental_product($id);
+    $product = explode('-', $rental_product);
+    $product_id = $product[0];
+    $product_seq = $product[1];
+
+    $this->MRental->update_product_status($product_id, $product_seq);
+
+    redirect('admin/Rental', 'refresh');
   }
 
   function delete_rental() {
