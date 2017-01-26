@@ -50,7 +50,7 @@
     </tbody>
   </table>
   <div align="right">
-    <button class="btn btn-outline btn-primary" type="button" data-toggle="modal" data-target="#add_product">물품 추가</button>
+    <button class="btn btn-lg btn-outline btn-primary" type="button" data-toggle="modal" data-target="#add_product">물품 추가</button>
   </div>
 </div>
 
