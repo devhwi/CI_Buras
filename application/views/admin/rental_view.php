@@ -49,9 +49,9 @@
           <?php endif; ?>
         </td>
         <td>
-          <form action="#" method="post" onsubmit="return confirm('삭제하시겠습니까?');">
-
-            <button class="btn btn-danger" type="submit">삭제</button>
+          <form action="<?=base_url('admin/Rental/delete_rental')?>" method="post" onsubmit="return confirm('삭제하시겠습니까?');">
+            <input type="hidden" name="rental_id" value="<?=$row['rental_id']?>">
+            <button class="btn btn-danger" type="submit" <?=$row['rental_status'] == 1 ? 'disabled' : ''?>>삭제</button>
           </form>
         </td>
       </tr>

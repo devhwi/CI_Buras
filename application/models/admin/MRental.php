@@ -52,4 +52,24 @@ class MRental extends CI_Model{
             AND product_seq = $int_seq";
     $query = $this->db->query($sql);
   }
+
+  function delete_rental($id) {
+    $sql = "DELETE FROM rental
+            WHERE rental_id = $id";
+    $query = $this->db->query($sql);
+  }
+
+  function update_deleted_rental_product($id, $seq) {
+    $sql = "UPDATE product
+            SET product_status = 0
+            WHERE product_id = '$id'
+            AND product_seq = $seq";
+    $query = $this->db->query($sql);
+  }
+
+  function delete_ref_finance($id) {
+    $sql = "DELETE FROM finance
+            WHERE finance_ref = $id";
+    $query = $this->db->query($sql);
+  }
 }

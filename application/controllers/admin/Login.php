@@ -6,13 +6,16 @@ class Login extends CI_Controller{
   public function __construct() {
     parent::__construct();
 
-    // session check ( isset -> redirect admin main )
-    if(session_check()){
-      // user_level check (admin check)
-      if($this->session->userdata('user_level') >= 8) {
-        redirect('admin/Main');
-      } else {
+    // session check
+    if(!session_check()) {
+      session_error_msg();
+    }else{
+      // admin check
+      if(admin_check() < 8) {
+        echo "<script>alert(".admin_check().")</script>";
         admin_error_msg();
+      }else{
+        redirect('admin/Main', 'refresh');
       }
     }
 

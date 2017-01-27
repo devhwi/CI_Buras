@@ -43,13 +43,29 @@ class Rental extends CI_Controller{
     $product = explode('-', $rental_product);
     $product_id = $product[0];
     $product_seq = $product[1];
-
     $this->MRental->update_product_status($product_id, $product_seq);
 
     redirect('admin/Rental', 'refresh');
   }
 
   function delete_rental() {
+    if(! $this->input->post('rental_id')) {
+      general_error_msg();
+    }
 
+    $id = $this->input->post('rental_id');
+
+    // delete rental
+    $this->MRental->delete_rental($id);
+
+    // update ref product status
+    $rental_product = $this->MRental->get_rental_product($id);
+    $product = explode('-', $rental_product);
+    $product_id = $product[0];
+    $product_seq = $product[1];
+    $this->MRental->update_deleted_rental_product($product_id, $product_seq);
+
+    // delete ref finance
+    $this->MRental->delete_ref_finance($id);
   }
 }

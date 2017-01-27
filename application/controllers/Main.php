@@ -6,7 +6,7 @@ class Main extends CI_Controller{
   public function __construct() {
     parent::__construct();
 
-    // session is not set -> error
+    // session check
     if(!session_check()) {
       session_error_msg();
     }
