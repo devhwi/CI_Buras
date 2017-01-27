@@ -29,7 +29,7 @@
             <?php if($row['finance_status'] == 1) : ?>
             <button type="button" class="btn btn-block btn-success" disabled>납부완료</button>
             <?php else : ?>
-            <form action="<?=base_url('admin/Finance/update_payment')?>" method="post" onsubmit="return confirm('납부처리를 하시겠습니까?');">
+            <form action="<?=base_url('admin/Finance/payment')?>" method="post" onsubmit="return confirm('납부처리를 하시겠습니까?');">
               <input type="hidden" name="finance_id" value="<?=$row['finance_id']?>">
               <button type="submit" class="btn btn-block btn-danger">미납</button>
             </form>
