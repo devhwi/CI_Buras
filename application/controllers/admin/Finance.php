@@ -18,6 +18,9 @@ class Finance extends CI_Controller{
     $this->load->model('admin/MFinance');
   }
 
+  /**
+   * Finance list (default)
+   */
   function index() {
     $view_params['finance_list'] = $this->MFinance->get_finance_list();
 
@@ -26,6 +29,9 @@ class Finance extends CI_Controller{
     $this->load->view('admin/footer');
   }
 
+  /**
+   * Finance - payment
+   */
   function payment() {
     if(! $this->input->post('finance_id')) {
       general_error_msg();
