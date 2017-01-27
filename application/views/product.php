@@ -2,6 +2,7 @@
   img {
     max-width: 100%;
     max-height:inherit;
+
   }
 
   a.plink {
@@ -10,6 +11,15 @@
   }
 
   .custom-select {
+    width: 100%;
+  }
+
+  .card {
+    max-height: 300px;
+  }
+
+  .card-img-top {
+    height: 200px;
     width: 100%;
   }
 </style>
@@ -35,7 +45,7 @@
 </div>
 <div class="col-md-10" id="">
   <?php foreach($list as $k => $row) : ?>
-  <div class="col-md-3">
+  <div class="col-md-3" style="margin-bottom: 1em;">
     <div class="card text-xs-center">
       <a class="plink" href="<?=base_url('Product/detail/'.$row['product_id'])?>"><img class="card-img-top" src="<?=base_url('assets/img/product/'.$row['product_img'])?>" alt=""></a>
       <div class="card-block">

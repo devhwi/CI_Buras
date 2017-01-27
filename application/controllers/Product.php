@@ -36,6 +36,7 @@ class Product extends CI_Controller{
     }
 
     $id = $this->uri->segment(3);
+    $seq = $this->uri->segment(4);
 
     $view_params['detail'] = $this->MProduct->get_detail($id);
     $view_params['status'] = $this->MProduct->get_detail_each_status($id);
@@ -56,7 +57,7 @@ class Product extends CI_Controller{
 
     $view_params['seq'] = $seq;
     $view_params['id'] = $id;
-    $view_params['detail'] = $this->MProduct->get_detail($id);
+    $view_params['detail'] = $this->MProduct->get_detail_request($id, $seq);
 
     $this->load->view('header');
     $this->load->view('product_request', $view_params);

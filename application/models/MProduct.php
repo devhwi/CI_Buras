@@ -45,6 +45,23 @@ class MProduct extends CI_Model{
     return $query->row();
   }
 
+  function get_detail_request($id, $seq) {
+    $sql = "SELECT product_id
+                 , product_name
+                 , (SELECT genre_id FROM genre WHERE genre_id = p.product_genre) AS product_genre_id
+                 , (SELECT genre_desc FROM genre WHERE genre_id = p.product_genre) AS product_genre
+                 , (SELECT type_id FROM type WHERE type_id = p.product_type) AS product_type_id
+                 , (SELECT type_desc  FROM type  WHERE type_id  = p.product_type)  AS product_type
+                 , (SELECT image_name FROM product_image WHERE image_ref_product = product_id AND image_seq = 1) AS product_img
+                 , product_seq
+            FROM product p
+            WHERE product_id = '$id'
+            AND product_seq = $seq
+            GROUP BY product_id";
+    $query = $this->db->query($sql);
+    return $query->row();
+  }
+
   function get_detail_each_status($id) {
     $sql = "SELECT product_id
                  , product_name

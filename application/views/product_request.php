@@ -37,6 +37,7 @@
     <div class="divider"></div>
     <p>종류 : <?=$detail->product_type?></p>
     <p>쟝르 : <?=$detail->product_genre?></p>
+    <p>재고번호 : <?=$detail->product_seq?></p>
     <div class="blank"></div>
     <h5 style="float:left">대여자 정보</h5><h6 style="float:right">(확인 후 신청 버튼 눌러주세요.)</h6>
     <div class="divider" style="clear:both"></div>

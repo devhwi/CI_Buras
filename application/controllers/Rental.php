@@ -25,6 +25,8 @@ class Rental extends CI_Controller{
     $product_seq = $this->input->post('product_seq');
     $dttm = date('Y-m-d H:i:s');
 
+    echo $product.'-'.$product_seq;
+
     if($this->MRental->check_product_valid($product, $product_seq) == 0) {
       echo "<script>alert('이미 대여중인 품목입니다.');</script>";
       redirect('Product/list', 'refresh');
@@ -71,8 +73,8 @@ class Rental extends CI_Controller{
     $user = $this->session->userdata('user_id');
 
     $view_params['my_all'] = $this->MRental->get_my_rental($user, '');
-    $view_params['my_ing'] = $this->MRental->get_my_rental($user, 0);
-    $view_params['my_ed']  = $this->MRental->get_my_rental($user, 1);
+    $view_params['my_ing'] = $this->MRental->get_my_rental($user, '0');
+    $view_params['my_ed']  = $this->MRental->get_my_rental($user, '1');
 
     $this->load->view('header');
     $this->load->view('myRental', $view_params);
