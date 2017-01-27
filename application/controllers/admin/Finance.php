@@ -40,8 +40,6 @@ class Finance extends CI_Controller{
     $id = $this->input->post('finance_id');
 
     // update payment
-    if($this->MFinance->update_payment($id)) {
-      redirect('admin/Finance', 'refresh');
-    }
+    redirect('admin/Finance', 'refresh');
   }
 }
