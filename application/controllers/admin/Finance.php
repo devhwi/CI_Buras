@@ -37,9 +37,10 @@ class Finance extends CI_Controller{
       general_error_msg();
     }
 
-    $id = $this->input->post('finance_id');
-
     // update payment
+    $id = $this->input->post('finance_id');
+    $this->MFinance->update_payment($id);
+
     redirect('admin/Finance', 'refresh');
   }
 }
