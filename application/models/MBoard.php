@@ -96,4 +96,19 @@ class MBoard extends CI_Model{
 
     return $query->num_rows();
   }
+
+  function write_board($data) {
+    $this->db->insert('board', $data);
+    return $this->db->affected_rows() > 0;
+  }
+
+  function get_max_seq_by_category($category) {
+    $sql = "SELECT IFNULL(MAX(board_seq), 0) + 1 AS max_seq
+            FROM board
+            WHERE board_category = $category";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+
+    return $row->max_seq;
+  }
 }

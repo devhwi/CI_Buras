@@ -85,4 +85,45 @@ class Board extends CI_Controller{
     $this->load->view('board_detail', $view_params);
     $this->load->view('footer');
   }
+
+  function write() {
+    if(! $this->uri->segment(3) ) {
+      general_error_msg();
+    }
+
+    $view_params['board_category'] = $this->uri->segment(3);
+    $view_params['board_category_name'] = $this->MBoard->get_category($this->uri->segment(3));
+    $view_params['board_notice'] = $this->uri->segment(3) == 1 ? 1 : 0;
+
+    $this->load->view('header');
+    $this->load->view('board_write', $view_params);
+    $this->load->view('footer');
+  }
+
+  function write_check() {
+    if(! $this->input->post() ) {
+      general_error_msg();
+    }
+
+    $board_category = $this->input->post('board_category');
+    $board_notice = $board_category == 1 ? 1 : 0;
+
+    $data = array(
+      'board_category' => $this->input->post('board_category'),
+      'board_title' => $this->input->post('board_title'),
+      'board_content' => nl2br($this->input->post('board_content')),
+      'board_writer' => $this->session->userdata('user_id'),
+      'board_dttm' => date('Y-m-d H:i:s'),
+      'board_notice' => $board_notice,
+      'board_seq' => $this->MBoard->get_max_seq_by_category($board_category)
+    );
+
+    if($this->MBoard->write_board($data)) {
+      echo "<script>alert('작성되었습니다.');</script>";
+    }else {
+      echo "<script>alert('오류입니다. 관리자에게 문의해 주세요.');</script>";
+    }
+
+    redirect('Board/'.$board_category, 'refresh');
+  }
 }
