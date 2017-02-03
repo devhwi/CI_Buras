@@ -82,7 +82,7 @@ class MBoard extends CI_Model{
                   WHERE @id IS NOT NULL) func
                   JOIN reply r ON func.id = r.reply_id
             WHERE reply_ref_board = $board_id
-            ORDER BY rownum";
+            ORDER BY rownum, r.reply_id";
     $query = $this->db->query($sql);
 
     return $query->result_array();

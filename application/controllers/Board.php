@@ -126,4 +126,20 @@ class Board extends CI_Controller{
 
     redirect('Board/'.$board_category, 'refresh');
   }
+
+  function edit() {
+    if(! $this->uri->segment(3) ) {
+      general_error_msg();
+    }
+    // user check
+    // if( ! $this->session->userdata('user_id') == 1 )
+
+    $view_params['board_category'] = $this->uri->segment(3);
+    $view_params['board_category_name'] = $this->MBoard->get_category($this->uri->segment(3));
+    $view_params['board_notice'] = $this->uri->segment(3) == 1 ? 1 : 0;
+
+    $this->load->view('header');
+    $this->load->view('board_write', $view_params);
+    $this->load->view('footer');
+  }
 }

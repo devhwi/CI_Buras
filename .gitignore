@@ -7,3 +7,5 @@
 composer.json
 license.txt
 readme.rst
+data
+.gitignore
