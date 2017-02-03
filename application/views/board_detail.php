@@ -36,8 +36,9 @@
     <div class="card-footer text-muted">
       <?=$detail->board_dttm?>&nbsp;에 작성&nbsp;&nbsp;&nbsp;
       <?php if ($detail->board_writer == $this->session->userdata('user_id')): ?>
-        <a class="btn btn-link" href="#">수정</a>
-        <a class="btn btn-link" href="#">삭제</a>
+        <a class="btn btn-link" href="<?=base_url('Board/edit/'.$detail->board_id)?>">수정</a>
+        <a class="btn btn-link" href="<?=base_url('Board/delete/'.$detail->board_id.'/'.$detail->board_category.'/'.$detail->board_seq)?>"
+          onclick="return confirm('삭제하시겠습니까?')">삭제</a>
       <?php endif; ?>
     </div>
   </div>

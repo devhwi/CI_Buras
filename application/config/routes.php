@@ -63,8 +63,9 @@ $route['Product/detail/(:any)'] = 'Product/detail';
 
 $route['Rental/my/(:any)'] = 'Rental/my';
 
-$route['Board/(:num)'] = 'Board';                 // category
-$route['Board/(:num)/page/(:num)'] = 'Board';     // list -> page view
-$route['Board/write/(:num)'] = 'Board/write';     // write board
-$route['Board/edit/(:num)'] = 'Board/edit';      // edit board
-$route['Board/detail/(:num)'] = 'Board/detail';   // board detail
+$route['Board/(:num)'] = 'Board';                             // category
+$route['Board/(:num)/page/(:num)'] = 'Board';                 // list -> page view
+$route['Board/write/(:num)'] = 'Board/write';                 // write board
+$route['Board/edit/(:num)'] = 'Board/edit';                   // edit board
+$route['Board/detail/(:num)'] = 'Board/detail';               // board detail
+$route['Board/delete/(:num)/(:num)/(:num)'] = 'Board/delete'; // delete board

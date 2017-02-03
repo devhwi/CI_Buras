@@ -91,6 +91,12 @@ class Board extends CI_Controller{
       general_error_msg();
     }
 
+    if($this->uri->segment(3) == 1){
+      if(!(admin_check() >= 8)) {
+        admin_error_msg();
+      }
+    }
+
     $view_params['board_category'] = $this->uri->segment(3);
     $view_params['board_category_name'] = $this->MBoard->get_category($this->uri->segment(3));
     $view_params['board_notice'] = $this->uri->segment(3) == 1 ? 1 : 0;
@@ -131,15 +137,63 @@ class Board extends CI_Controller{
     if(! $this->uri->segment(3) ) {
       general_error_msg();
     }
-    // user check
-    // if( ! $this->session->userdata('user_id') == 1 )
 
-    $view_params['board_category'] = $this->uri->segment(3);
-    $view_params['board_category_name'] = $this->MBoard->get_category($this->uri->segment(3));
-    $view_params['board_notice'] = $this->uri->segment(3) == 1 ? 1 : 0;
+    $board_id = $this->uri->segment(3);
+
+    // user check
+    if(!($this->session->userdata('user_id') == $this->MBoard->user_check($board_id))) {
+      general_error_msg();
+    }
+    $view_params['detail'] = $this->MBoard->get_board_detail($board_id);
 
     $this->load->view('header');
-    $this->load->view('board_write', $view_params);
+    $this->load->view('board_edit', $view_params);
     $this->load->view('footer');
+  }
+
+  function edit_check() {
+    if(! $this->input->post() ) {
+      general_error_msg();
+    }
+
+    $board_id = $this->input->post('board_id');
+
+    $data = array(
+      'board_title' => $this->input->post('board_title'),
+      'board_content' => nl2br($this->input->post('board_content'))
+    );
+
+    if( $this->MBoard->edit_board($data, $board_id) == 1 ) {
+      echo "<script>alert('수정되었습니다.')</script>";
+      redirect('Board/detail/'.$board_id, 'refresh');
+    }else {
+      echo "<script>alert('오류입니다. 관리자에게 문의하여 주세요.')</script>";
+      redirect('Board/detail/'.$board_id, 'refresh');
+    }
+  }
+
+  function delete() {
+    $board_id = $this->uri->segment(3);
+    $board_category = $this->uri->segment(4);
+    $board_seq = $this->uri->segment(5);
+
+    // user check
+    if(!($this->session->userdata('user_id') == $this->MBoard->user_check($board_id))) {
+      general_error_msg();
+    }
+
+    if( $this->MBoard->delete_board($board_id) == 1 ) {
+      // update seq
+      $this->MBoard->update_seq($board_category, $board_seq);
+
+      // delete replies
+      $this->MBoard->delete_replies($board_id);
+
+      echo "<script>alert('삭제되었습니다.')</script>";
+      redirect('Board/'.$board_category, 'refresh');
+    }else {
+      echo "<script>alert('오류입니다. 관리자에게 문의하여 주세요.')</script>";
+      redirect('Board/'.$board_category, 'refresh');
+    }
   }
 }
