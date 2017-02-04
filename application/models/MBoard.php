@@ -151,4 +151,24 @@ class MBoard extends CI_Model{
     $this->db->where('reply_ref_board', $id);
     $this->db->delete('reply');
   }
+
+  function get_ftp_info() {
+    $sql = "SELECT code_desc
+            FROM code_table
+            WHERE code_group = 'ftp'
+            ORDER BY code_seq";
+    $query = $this->db->query($sql);
+
+    return $query->result_array();
+  }
+
+  function get_file_name($id) {
+    $sql = "SELECT board_file
+            FROM board
+            WHERE board_id = $id";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+
+    return $row->board_file;
+  }
 }

@@ -194,6 +194,8 @@ class Board extends CI_Controller{
   }
 
   function delete() {
+    $this->load->library('ftp');
+
     $board_id = $this->uri->segment(3);
     $board_category = $this->uri->segment(4);
     $board_seq = $this->uri->segment(5);
@@ -203,6 +205,21 @@ class Board extends CI_Controller{
       general_error_msg();
     }
 
+    // delete file
+    $ftp_info = $this->MBoard->get_ftp_info();
+    $config['hostname'] = $ftp_info[0]['code_desc'];
+    $config['username'] = $ftp_info[1]['code_desc'];
+    $config['password'] = $ftp_info[2]['code_desc'];
+    $config['port']     = 21;
+    $config['passive']  = FALSE;
+    $config['debug']    = TRUE;
+
+    $this->ftp->connect($config);
+
+    $this->ftp->delete_file('./assets/file/'.$this->MBoard->get_file_name($board_id));
+
+    $this->ftp->close();
+
     if( $this->MBoard->delete_board($board_id) == 1 ) {
       // update seq
       $this->MBoard->update_seq($board_category, $board_seq);
@@ -211,7 +228,7 @@ class Board extends CI_Controller{
       $this->MBoard->delete_replies($board_id);
 
       echo "<script>alert('삭제되었습니다.')</script>";
-      redirect('Board/'.$board_category, 'refresh');
+      // redirect('Board/'.$board_category, 'refresh');
     }else {
       echo "<script>alert('오류입니다. 관리자에게 문의하여 주세요.')</script>";
       redirect('Board/'.$board_category, 'refresh');
