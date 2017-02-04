@@ -32,6 +32,15 @@
       <p class="card-text" style="">
         <?=$detail->board_content?>
       </p>
+      <p>
+        <?php if ($detail->board_category == 3 || $detail->board_category == 4): ?>
+          <?php if ($detail->board_file == ""): ?>
+            파일 없음
+          <?php else: ?>
+            <a href="<?=base_url('Board/download/'.$detail->board_file)?>"><?=$detail->board_file?></a>
+          <?php endif; ?>
+        <?php endif; ?>
+      </p>
     </div>
     <div class="card-footer text-muted">
       <?=$detail->board_dttm?>&nbsp;에 작성&nbsp;&nbsp;&nbsp;

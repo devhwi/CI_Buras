@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 .img-rounded {
   border: 0px;
   border-radius: 50%;
@@ -12,7 +12,7 @@
   margin-bottom: 0em;
 }
 .form-group {
-  font-family: 'Hanna', serif !important;
+  font-family: 'Jeju Gothic', serif !important;
 }
 /*footer {
   position: fixed;

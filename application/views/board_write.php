@@ -3,7 +3,7 @@
 </style>
 <div class="container">
   <h3>게시물 작성</h3>
-  <form class="" action="<?=base_url('Board/write_check')?>" method="post">
+  <form class="" action="<?=base_url('Board/write_check')?>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="board_category" value="<?=$board_category?>">
     <input type="hidden" name="board_notice" value="<?=$board_notice?>">
     <div class="form-group row">
@@ -24,6 +24,14 @@
         <textarea class="form-control" name="board_content" rows="8" cols="80" required></textarea>
       </div>
     </div>
+    <?php if ($board_category == 3 || $board_category == 4) : ?>
+    <div class="form-group row">
+      <label class="col-md-2 col-form-label" for="board_content">첨부파일</label>
+      <div class="col-md-10">
+        <input class="form-control" type="file" name="board_file" required>
+      </div>
+    </div>
+    <?php endif; ?>
     <div class="form-group row" align="right">
       <div class="col-md-12">
         <button class="btn btn-danger" type="button" onclick="window.history.back();">취소</button>
