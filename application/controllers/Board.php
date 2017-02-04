@@ -228,7 +228,7 @@ class Board extends CI_Controller{
       $this->MBoard->delete_replies($board_id);
 
       echo "<script>alert('삭제되었습니다.')</script>";
-      // redirect('Board/'.$board_category, 'refresh');
+      redirect('Board/'.$board_category, 'refresh');
     }else {
       echo "<script>alert('오류입니다. 관리자에게 문의하여 주세요.')</script>";
       redirect('Board/'.$board_category, 'refresh');
