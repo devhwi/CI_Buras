@@ -12,9 +12,9 @@
 
     $youtubeVideoId = $urlArr[$urlArrNum - 1];
 
-    $thumbURL = 'http://img.youtube.com/vi/'.$youtubeVideoId.'/0.jpg';
+    $thumbURL = /*'http://img.youtube.com/vi/'.*/$youtubeVideoId.'/0.jpg';
     ?>
-    <div class="card col-md-4" style="">
+    <div class="card col-md-3" style="">
       <a href="#"> <!-- detail link -->
         <img class="card-img-top" src="<?=$thumbURL?>" alt="">
       </a>
@@ -25,7 +25,7 @@
       </div>
     </div>
   <?php endforeach; ?>
-  <div class="" align="center">
+  <div class="col-md-12 col-xs-12" align="center">
     <?=$this->pagination->create_links();?><br>
   </div>
 </div>

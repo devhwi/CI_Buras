@@ -26,9 +26,9 @@ class Media extends CI_Controller{
     $view_params['media_count'] = $this->MMedia->get_media_count($media_type);
 
     /* Pagination Configuration */
-    $config['base_url'] = base_url().'Board/'.$media_type.'/page/';
+    $config['base_url'] = base_url().'Media/'.$media_type.'/page/';
     $config['total_rows'] = $view_params['media_count'];
-    $config['per_page'] = 12;
+    $config['per_page'] = 16;
     $config['num_links'] = 5;
     $config['first_url'] = '1';
     $config['uri_segment'] = 4;
@@ -70,5 +70,13 @@ class Media extends CI_Controller{
       $this->load->view('media_gallery', $view_params);
     }
     $this->load->view('footer');
+  }
+
+  function detail() {
+    if(! $this->uri->segment(3)) {
+      general_error_msg();
+    }
+
+    
   }
 }
