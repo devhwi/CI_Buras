@@ -6,8 +6,7 @@
   }
 
   .card-block {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding: 0.5rem 0.75rem;
   }
 
   .btn-link {
@@ -24,14 +23,19 @@
   }
 </style>
 <div class="container">
+  <!-- image list -->
   <?php foreach ($media as $k => $row): ?>
     <div class="col-md-3">
       <div class="card" >
-        <a href="#" data-toggle="modal" data-target="#imgModal"> <!-- detail link -->
+        <a href="#" data-toggle="modal" data-target="#imgModal"
+          data-img="<?=base_url('assets/img/gallery/'.$row['media_content'])?>"
+          data-title="<?=$row['media_title']?>"> <!-- detail link -->
           <img class="card-img-top" src="<?=base_url('assets/img/gallery/'.$row['media_content'])?>" alt="">
         </a>
         <div class="card-block">
-          <button class="btn btn-link btn-text"> <!-- detail link -->
+          <button class="btn btn-link btn-text" data-toggle="modal" data-target="#imgModal"
+            data-img="<?=base_url('assets/img/gallery/'.$row['media_content'])?>"
+            data-title="<?=$row['media_title']?>"> <!-- detail link -->
             <span class="card-title">
               <?=$row['media_title']?>
             </span>
@@ -52,30 +56,27 @@
 
 <!-- IMAGE MODAL -->
 <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="form-control-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="form-control-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
+        <img id="modal-img" src="" alt="">
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+      <div class="modal-footer" align="center" style="text-align: center">
+        <h5 id="modal-title"><!-- Title by JQuery --></h5>
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#imgModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var image = button.data('img');
+    var title = button.data('title');
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this);
+    modal.find('#modal-img').attr('src', image);
+    modal.find('#modal-title').text(title);
+  });
+</script>

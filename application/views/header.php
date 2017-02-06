@@ -116,8 +116,8 @@
               <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MEDIA</a>
               <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-                <a class="dropdown-item" href="#">VIDEOS</a>
-                <a class="dropdown-item" href="#">GALLERY</a>
+                <a class="dropdown-item" href="<?=base_url('Media/1')?>">VIDEOS</a>
+                <a class="dropdown-item" href="<?=base_url('Media/2')?>">GALLERY</a>
               </div>
             </li>
             <li class="nav-item dropdown">
