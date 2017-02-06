@@ -70,3 +70,6 @@ $route['Board/edit/(:num)'] = 'Board/edit';                   // edit board
 $route['Board/detail/(:num)'] = 'Board/detail';               // board detail
 $route['Board/delete/(:num)/(:num)/(:num)'] = 'Board/delete'; // delete board
 $route['Board/download/(:any)'] = 'Board/download';           // download board file
+
+$route['Media/(:num)'] = 'Media';
+$route['Media/(:num)/page/(:num)'] = 'Media';
