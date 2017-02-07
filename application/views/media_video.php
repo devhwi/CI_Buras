@@ -64,12 +64,4 @@
   $('#vdoModal').on('hidden.bs.modal', function (event) {
     $("#vdoModal iframe").attr("src", $("#vdoModal iframe").attr("src"));
   });
-// <iframe width="560" height="315" src="https://www.youtube.com/embed/8o0HSkKEfIA" frameborder="0" allowfullscreen></iframe>
-  // function convertYoutube($string) {
-  //   return preg_replace(
-  //     "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
-  //     "<iframe src=\"//www.youtube.com/embed/$2\" allowfullscreen></iframe>",
-  //     $string
-  //   );
-  // }
 </script>

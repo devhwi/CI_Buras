@@ -1,4 +1,12 @@
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+html, body {
+  font-family: 'Jeju Gothic', serif !important;
+}
+
+* {
+  font-family: 'Jeju Gothic', serif !important;
+}
+
 .img-rounded {
   border: 0px;
   border-radius: 50%;
@@ -10,9 +18,6 @@
 
 #user-menu {
   margin-bottom: 0em;
-}
-.form-group {
-  font-family: 'Jeju Gothic', serif !important;
 }
 /*footer {
   position: fixed;
@@ -46,14 +51,12 @@ footer .footer_menu li{
 }
 
 .main_title {
-  font-family: 'Hanna', serif !important;
   font-size: 1em;
   text-align: right;
   padding: 0 0 10px 30px;
 }
 
 .main_button {
-  font-family: 'Hanna', serif !important;
   color: #fff;
   width: 100%;
   /*padding: 5px;*/

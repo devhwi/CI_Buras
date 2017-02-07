@@ -124,13 +124,13 @@
               <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BOARD</a>
               <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-                <a class="dropdown-item" href="<?=base_url('Board/1')?>">공지사항</a>
-                <a class="dropdown-item" href="<?=base_url('Board/2')?>">회계보고</a>
-                <a class="dropdown-item" href="<?=base_url('Board/3')?>">문서창고</a>
-                <a class="dropdown-item" href="<?=base_url('Board/4')?>">자료실</a>
+                <a class="dropdown-item" href="<?=base_url('Board/1')?>">NOTICE</a>
+                <a class="dropdown-item" href="<?=base_url('Board/2')?>">FINANCE</a>
+                <a class="dropdown-item" href="<?=base_url('Board/3')?>">DOCUMENTS</a>
+                <a class="dropdown-item" href="<?=base_url('Board/4')?>">DATA</a>
               </div>
             </li>
-            <?php if($this->session->userdata >= 8) : ?>
+            <?php if($this->session->userdata('user_level') >= 8) : ?>
             <li class="nav-item">
               <a class="nav-link" href="<?=base_url('admin/Main')?>" target="_blank">ADMIN</a>
             </li>

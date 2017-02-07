@@ -15,7 +15,11 @@ html {
 }
 
 body {
+  font-family: 'Jeju Gothic', 'Nanum Gothic', serif;
   margin: 0;
+}
+* {
+  font-family: 'Jeju Gothic', 'Nanum Gothic', serif;
 }
 
 article,
