@@ -19,7 +19,10 @@ class Board extends CI_Controller{
     $this->load->model('admin/MBoard');
   }
 
-  function post() {
+  /**
+   * POST
+   */
+  function post($idx=null) {
     if( ! $this->uri->segment(4) ) {
       $category = 1;
     } else {
@@ -71,15 +74,82 @@ class Board extends CI_Controller{
     redirect('admin/Board/post', 'refresh');
   }
 
+  /**
+   * REPLY
+   */
   function reply() {
     $view_params['reply_list'] = $this->MBoard->get_reply();
 
-    $this->load->view('header');
-    $this->load->view('reply_list');
-    $this->load->view('footer');
+    $this->load->view('admin/header');
+    $this->load->view('admin/reply_list', $view_params);
+    $this->load->view('admin/footer');
   }
 
-  function notice() {
+  function remove_reply() {
+    if( ! $this->input->post('reply_id') ) {
+      general_error_msg();
+    }
 
+    $reply_id = $this->input->post('reply_id');
+
+    // remove reply
+    $this->MBoard->delete_reply($reply_id);
+    // remove replies whose parent reply is $reply_id
+    $this->MBoard->delete_child_reply($reply_id);
+
+    redirect('admin/Board/reply', 'refresh');
+  }
+
+  /**
+   * VIDEO
+   */
+  function video() {
+    $view_params['video_list'] = $this->MBoard->get_video_list();
+
+    $this->load->view('admin/header');
+    $this->load->view('admin/video_list', $view_params);
+    $this->load->view('admin/footer');
+  }
+
+  function add_video() {
+    if( ! $_POST ) {
+      general_error_msg();
+    }
+
+    $content = explode('/', $this->input->post('media_content'));
+    $countArr = count($content);
+    $media_content = $content[$countArr - 1];
+
+    $data = array(
+      'media_writer' => $this->input->post('media_writer'),
+      'media_type' => 1,
+      'media_title' => $this->input->post('media_title'),
+      'media_content' => $media_content,
+      'media_dttm' => date('Y-m-d h:i:s')
+    );
+
+    $this->MBoard->insert_video($data);
+
+    redirect('admin/Board/video', 'refresh');
+  }
+
+  function remove_video() {
+    if( ! $this->input->post('media_id') ) {
+      general_error_msg();
+    }
+
+    $video_id = $this->input->post('media_id');
+
+    $this->MBoard->delete_video($video_id);
+
+    redirect('admin/Board/video', 'refresh');
+  }
+
+  /**
+   * GALLERY
+   */
+  function gallery() {
+    $this->load->view('admin/header');
+    $this->load->view('admin/footer');
   }
 }

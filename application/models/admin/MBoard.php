@@ -58,4 +58,67 @@ class MBoard extends CI_Model{
 
     return $row ? $row->board_file : "";
   }
+
+  function get_reply() {
+    $sql = "SELECT r.*
+                 , user_name
+                 , board_title
+                 , board_category
+                 , (SELECT category_desc FROM board_category
+                    WHERE category_id = b.board_category) AS category_desc
+            FROM reply r
+               , user u
+               , board b
+            WHERE r.reply_ref_board = b.board_id
+            AND r.reply_writer = u.user_id
+            ORDER BY reply_dttm DESC";
+    $query = $this->db->query($sql);
+
+    return $query->result_array();
+  }
+
+  function delete_reply($id) {
+    $this->db->where('reply_id', $id);
+    $this->db->delete('reply');
+  }
+
+  function delete_child_reply($id) {
+    $this->db->where('reply_parent', $id);
+    $this->db->delete('reply');
+  }
+
+  function get_video_list() {
+    $sql = "SELECT m.*
+                 , user_name
+            FROM media m
+               , user u
+            WHERE media_type = 1
+            AND m.media_writer = u.user_id
+            ORDER BY media_id DESC";
+    $query = $this->db->query($sql);
+
+    return $query->result_array();
+  }
+
+  function insert_video($data) {
+    $this->db->insert('media', $data);
+  }
+
+  function delete_video($id) {
+    $this->db->where('media_id', $id);
+    $this->db->delete('media');
+  }
+
+  function get_gallery_list() {
+    $sql = "SELECT m.*
+                 , user_name
+            FROM media m
+               , user u
+            WHERE media_type = 2
+            AND m.media_writer = u.user_id
+            ORDER BY media_id DESC";
+    $query = $this->db->query($sql);
+
+    return $query->result_array();
+  }
 }

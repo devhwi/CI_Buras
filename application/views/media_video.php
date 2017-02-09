@@ -7,10 +7,7 @@
 <div class="container">
   <?php foreach ($media as $k => $row): ?>
     <?php
-    $urlArr = explode("/",$row['media_content']);
-    $urlArrNum = count($urlArr);
-
-    $youtubeVideoId = $urlArr[$urlArrNum - 1];
+    $youtubeVideoId = $row['media_content'];
 
     $thumbURL = 'http://img.youtube.com/vi/'.$youtubeVideoId.'/0.jpg';
     $videoURL = 'https://www.youtube.com/embed/'.$youtubeVideoId;

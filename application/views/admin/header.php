@@ -154,13 +154,13 @@
                 <a href="<?=base_url('admin/Board/post')?>">게시물 관리</a>
               </li>
               <li>
-                <a href="##">댓글 관리</a>
+                <a href="<?=base_url('admin/Board/reply')?>">댓글 관리</a>
               </li>
               <li>
-                <a href="##">동영상 관리</a>
+                <a href="<?=base_url('admin/Board/video')?>">동영상 관리</a>
               </li>
               <li>
-                <a href="##">갤러리 관리</a>
+                <a href="<?=base_url('admin/Board/gallery')?>">갤러리 관리</a>
               </li>
             </ul>
           </li>
