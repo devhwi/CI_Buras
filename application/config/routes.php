@@ -73,3 +73,5 @@ $route['Board/download/(:any)'] = 'Board/download';           // download board 
 
 $route['Media/(:num)'] = 'Media';
 $route['Media/(:num)/page/(:num)'] = 'Media';
+
+$route['admin/Board/(:num)'] = 'admin/Board';

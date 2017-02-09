@@ -151,16 +151,16 @@
             <a href="##"><i class="fa fa-list-alt fa-fw"></i> 게시판 관리<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
               <li>
-                <a href="##">카테고리 관리</a>
-              </li>
-              <li>
-                <a href="##">게시물 관리</a>
+                <a href="<?=base_url('admin/Board/post')?>">게시물 관리</a>
               </li>
               <li>
                 <a href="##">댓글 관리</a>
               </li>
               <li>
-                <a href="##">공지사항</a>
+                <a href="##">동영상 관리</a>
+              </li>
+              <li>
+                <a href="##">갤러리 관리</a>
               </li>
             </ul>
           </li>
