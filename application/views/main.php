@@ -1,12 +1,37 @@
 <style media="screen">
 .item-box {
   width: 100%;
-  height: 30em;
+  height: 50em;
   background-color: #888;
+}
+
+#ca1 {
+  background-image: url('<?=base_url('assets/img/test_carousel.jpg')?>');
+  background-size: cover;
+}
+
+#ca2 {
+  background-image: url('<?=base_url('assets/img/test_carousel.jpg')?>');
+  background-size: cover;
+}
+
+#ca3 {
+  background-image: url('<?=base_url('assets/img/test_carousel.jpg')?>');
+  background-size: cover;
 }
 
 .col-md-6 {
   margin-bottom: 1.5em;
+}
+
+#carousel {
+  margin-top: -2em;
+}
+
+@media(max-width:450px) {
+  .item-box {
+    height:20em;
+  }
 }
 </style>
 
@@ -20,7 +45,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
       <div class="carousel-item active" align="center">
-        <div class="item-box" style="">
+        <div id="ca1" class="item-box" style="">
         </div>
         <div class="carousel-caption">
           <h3>Slide 1</h3>
@@ -28,7 +53,7 @@
         </div>
       </div>
       <div class="carousel-item" align="center">
-        <div class="item-box" style="">
+        <div id="ca1" class="item-box" style="">
         </div>
         <div class="carousel-caption">
           <h3>Slide 2</h3>
@@ -36,7 +61,7 @@
         </div>
       </div>
       <div class="carousel-item" align="center">
-        <div class="item-box" style="">
+        <div id="ca1" class="item-box" style="">
         </div>
         <div class="carousel-caption">
           <h3>Slide 3</h3>
@@ -44,12 +69,12 @@
         </div>
       </div>
     </div>
-    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
-      <span class="icon-prev" aria-hidden="true"></span>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-      <span class="icon-next" aria-hidden="true"></span>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
@@ -118,6 +143,6 @@
 <!-- CAROUSEL END -->
 <script type="text/javascript">
   $('.carousel').carousel({
-    interval: 2000
+    interval: 3000
   });
 </script>
