@@ -149,7 +149,83 @@ class Board extends CI_Controller{
    * GALLERY
    */
   function gallery() {
+    $view_params['gallery_list'] = $this->MBoard->get_gallery_list();
+
     $this->load->view('admin/header');
+    $this->load->view('admin/gallery_list', $view_params);
     $this->load->view('admin/footer');
+  }
+
+  function add_gallery() {
+
+    // file upload config
+    $config['upload_path'] = './assets/img/gallery/';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg|GIF|JPG|JPEG|PNG';
+    $config['max_size'] = "5120"; // 5mb
+    $config['max_width'] = "4096";
+    $config['max_height'] = "4096";
+    $config['remove_spaces'] = TRUE;
+
+    $this->load->library('upload', $config);
+
+    $files_name = $_FILES['media_content']['name'];
+    $files = $_FILES['media_content'];
+
+    if(!is_array($files_name)) {
+      if(! $this->upload->do_upload('media_content') ) {
+        echo "<script>alert('파일 업로드에 실패하였습니다.');</script>";
+        redirect('admin/Board/gallery', 'refresh');
+      } else {
+        $uploaded_file = $this->upload->data();
+        $file_name = $uploaded_file['file_name'];
+
+        $data = array(
+          'media_writer'      => $this->input->post('media_writer')
+        , 'media_type'        => 2
+        , 'media_title'       => $this->input->post('media_title')
+        , 'media_content'     => $file_name
+        , 'media_dttm'        => date('Y-m-d h:i:s')
+        );
+
+        $this->MBoard->insert_gallery($data);
+        redirect('admin/Board/gallery', 'refresh');
+      }
+    }
+  }
+
+  function remove_gallery() {
+    if(!$_POST) {
+      general_error_msg();
+    }
+
+    $media_id = $this->input->post('media_id');
+    $media_content = $this->input->post('media_content');
+
+    $this->load->library('ftp');
+    $ftp_info = $this->MBoard->get_ftp_info();
+    $config['hostname'] = $ftp_info[0]['code_desc'];
+    $config['username'] = $ftp_info[1]['code_desc'];
+    $config['password'] = $ftp_info[2]['code_desc'];
+    $config['port']     = 21;
+    $config['passive']  = FALSE;
+    $config['debug']    = TRUE;
+
+    $path = './assets/img/gallery/';
+    $file_name = $media_content;
+
+    $this->ftp->connect($config);
+    if($this->ftp->delete_file($path.$file_name)) {
+      // success
+      echo 'success';
+
+      // delete DB
+      $this->MBoard->delete_gallery($media_id);
+
+      $this->ftp->close();
+
+      redirect('admin/Board/gallery', 'refresh');
+    }else{
+      echo 'fail';
+    }
   }
 }

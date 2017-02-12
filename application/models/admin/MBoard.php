@@ -121,4 +121,12 @@ class MBoard extends CI_Model{
 
     return $query->result_array();
   }
+
+  function insert_gallery($data) {
+    $this->db->insert('media', $data);
+  }
+  function delete_gallery($id) {
+    $this->db->where('media_id', $id);
+    $this->db->delete('media');
+  }
 }
