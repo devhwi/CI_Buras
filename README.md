@@ -5,7 +5,7 @@
   * 데이터베이스 : MariaDB(10.0.x)
 
 ### 오픈 소스 정보
-  * 관리자 화면 -> @[SB Admin 2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2)
+  * 관리자 화면 -> [SB Admin 2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2) by BlackrockDigital
 
 ### 개발자
   * @[devhwi](https://github.com/devhwi)
