@@ -7,7 +7,7 @@ class MBoard extends CI_Model{
     parent::__construct();
   }
 
-  function get_board_list($category) {
+  function get_board_list() {
     $sql = "SELECT b.*
                  , user_name
                  , category_desc

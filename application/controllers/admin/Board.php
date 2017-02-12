@@ -23,13 +23,8 @@ class Board extends CI_Controller{
    * POST
    */
   function post($idx=null) {
-    if( ! $this->uri->segment(4) ) {
-      $category = 1;
-    } else {
-      $category = $this->uri->segment(4);
-    }
 
-    $view_params['board_list'] = $this->MBoard->get_board_list($category);
+    $view_params['board_list'] = $this->MBoard->get_board_list();
 
     $this->load->view('admin/header');
     $this->load->view('admin/board_list', $view_params);
