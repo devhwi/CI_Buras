@@ -5,7 +5,7 @@
   * 데이터베이스 : MariaDB(10.0.x)
 
 ### 오픈 소스 정보
-  * 관리자 화면 -> [SB Admin 2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2) by [BlackrockDigital](https://github.com/BlackrockDigital)
+  * 관리자 화면 : [SB Admin 2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2) by @[BlackrockDigital](https://github.com/BlackrockDigital)
 
 ### 개발자
   * @[devhwi](https://github.com/devhwi)
@@ -47,7 +47,7 @@
 
 
 ### 화면 구성
-  > 사용자화면
+> 사용자화면
 
   * 로그인 : 접속 시 초기화면
     * 회원가입 : 사용자 등록 화면. 가입 후 관리자 승인이 있어야 이용 가능
@@ -69,10 +69,8 @@
     * 사진첩
     * 영상(유투브 링크)
 
-
-
-  >관리자화면
-  >비회원 : 0 / 정회원 : 1 / 렌탈관리자 : 8 / 회계관리자 : 9 / 웹마스터 : 10
+>관리자화면
+>비회원 : 0 / 정회원 : 1 / 렌탈관리자 : 8 / 회계관리자 : 9 / 웹마스터 : 10
 
   관리자 권한을 가진 사용자만 접속이 가능합니다.
 
