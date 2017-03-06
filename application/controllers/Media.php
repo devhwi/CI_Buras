@@ -22,8 +22,10 @@ class Media extends CI_Controller{
     }
 
     $media_type = $this->uri->segment(2);
+    $media_category = $this->input->post('media_category');
 
-    $view_params['media_count'] = $this->MMedia->get_media_count($media_type);
+    $view_params['media_category'] = $media_category;
+    $view_params['media_count'] = $this->MMedia->get_media_count($media_type, $media_category);
 
     /* Pagination Configuration */
     $config['base_url'] = base_url().'Media/'.$media_type.'/page/';
@@ -61,22 +63,15 @@ class Media extends CI_Controller{
       $offset = $this->uri->segment(4);
     }
 
-    $view_params['media'] = $this->MMedia->get_media_list($media_type, $config['per_page'], $offset);
+    $view_params['media'] = $this->MMedia->get_media_list($media_type, $config['per_page'], $offset, $media_category);
 
     $this->load->view('header');
     if ($media_type == 1) { // video
+      $view_params['video_categories'] = $this->MMedia->get_video_categories();
       $this->load->view('media_video', $view_params);
     }else {                 // gallery
       $this->load->view('media_gallery', $view_params);
     }
     $this->load->view('footer');
-  }
-
-  function detail() {
-    if(! $this->uri->segment(3)) {
-      general_error_msg();
-    }
-
-    
   }
 }

@@ -120,6 +120,7 @@ class Board extends CI_Controller{
       'media_type' => 1,
       'media_title' => $this->input->post('media_title'),
       'media_content' => $media_content,
+      'media_category' => $this->input->post('media_category'),
       'media_dttm' => date('Y-m-d h:i:s')
     );
 

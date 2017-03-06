@@ -69,11 +69,15 @@
         <input type="hidden" name="media_writer" value="<?=$this->session->userdata('user_id')?>">
         <div class="modal-body">
           <div class="form-group">
-            <label for="">동영상 제목</label>
+            <label for="">제목</label>
             <input class="form-control" type="text" name="media_title" required>
           </div>
           <div class="form-group">
-            <label for="">동영상 링크</label>
+            <label for="">카테고리</label>
+            <input class="form-control" type="text" name="media_category" required>
+          </div>
+          <div class="form-group">
+            <label for="">링크</label>
             <input class="form-control" type="text" name="media_content"
               placeholder="유투브 링크를 복붙해주세요.(https://youtube.com/xxxxxx)" required>
           </div>

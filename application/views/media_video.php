@@ -3,7 +3,30 @@
     max-width:100%;
     margin-top: 1em;
   }
+
+  #video-list-header {
+    margin-bottom: 1em;
+  }
+
+  #select_category {
+    width: 25%;
+  }
+
+  @media (max-width: 576px) {
+    #select_category {
+      width: 100%;
+    }
+  }
 </style>
+<div class="container" id="video-list-header">
+  <form class="" action="<?=base_url('Media/1')?>" method="post">
+    <select class="form-control" name="media_category" onchange="this.form.submit()" id="select_category">
+      <?php foreach ($video_categories as $k => $row): ?>
+        <option value="<?=$row['media_category']?>" <?=$media_category == $row['media_category'] ? 'selected' : ''?>><?=$row['media_category']?></option>
+      <?php endforeach; ?>
+    </select>
+  </form>
+</div>
 <div class="container">
   <?php foreach ($media as $k => $row): ?>
     <?php
