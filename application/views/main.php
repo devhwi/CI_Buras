@@ -6,17 +6,17 @@
 }
 
 #ca1 {
-  background-image: url('<?=base_url('assets/img/test_carousel.jpg')?>');
+  background-image: url('<?=base_url('assets/img/main/1.jpg')?>');
   background-size: cover;
 }
 
 #ca2 {
-  background-image: url('<?=base_url('assets/img/test_carousel.jpg')?>');
+  background-image: url('<?=base_url('assets/img/main/2.jpg')?>');
   background-size: cover;
 }
 
 #ca3 {
-  background-image: url('<?=base_url('assets/img/test_carousel.jpg')?>');
+  background-image: url('<?=base_url('assets/img/main/3.jpg')?>');
   background-size: cover;
 }
 
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="carousel-item" align="center">
-        <div id="ca1" class="item-box" style="">
+        <div id="ca2" class="item-box" style="">
         </div>
         <div class="carousel-caption">
           <h3>Slide 2</h3>
@@ -61,7 +61,7 @@
         </div>
       </div>
       <div class="carousel-item" align="center">
-        <div id="ca1" class="item-box" style="">
+        <div id="ca3" class="item-box" style="">
         </div>
         <div class="carousel-caption">
           <h3>Slide 3</h3>

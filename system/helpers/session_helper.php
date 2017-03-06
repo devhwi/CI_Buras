@@ -44,8 +44,13 @@ if ( ! function_exists('general_error_msg'))
 if ( ! function_exists('admin_error_msg'))
 {
 	function admin_error_msg() {
-		echo "<script>alert('관리자가 아닙니다.')</script>";
-		redirect(base_url(), 'refresh');
+		// admin 예외 처리
+		$CI = &get_instance();
+		if($CI->session->userdata('user_id') == 'admin'){
+			return;
+		}
+		echo "<script>alert('담당자가 아닙니다. 회장에게 문의해 주세요.')</script>";
+		redirect(base_url('/admin/Main'), 'refresh');
 	}
 }
 ?>

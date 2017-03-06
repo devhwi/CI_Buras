@@ -117,15 +117,19 @@
               <tbody>
                 <tr <?=$this->session->userdata('user_level') == 10 ? 'class="success"' : ""?>>
                   <td>10</td>
-                  <td>웹마스터</td>
+                  <td>회장</td>
                 </tr>
                 <tr <?=$this->session->userdata('user_level') == 9 ? 'class="success"' : ""?>>
                   <td>9</td>
-                  <td>회계관리자</td>
+                  <td>회계부장</td>
                 </tr>
                 <tr <?=$this->session->userdata('user_level') == 8 ? 'class="success"' : ""?>>
                   <td>8</td>
-                  <td>렌탈관리자</td>
+                  <td>관리부장</td>
+                </tr>
+                <tr <?=$this->session->userdata('user_level') == 7 ? 'class="success"' : ""?>>
+                  <td>7</td>
+                  <td>기획부장</td>
                 </tr>
                 <tr>
                   <td>1</td>

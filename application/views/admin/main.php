@@ -1,5 +1,11 @@
 <style media="screen">
+.img-thumbnail {
+  max-height: 280px;
+}
 
+.img-list {
+  text-align: center;
+}
 </style>
 <!-- Title Area -->
 <div class="row">
@@ -99,3 +105,27 @@
     </div>
 </div>
 <!-- /.row -->
+
+<div class="row">
+  <div class="col-lg-12">
+      <h3 class="page-header">메인 이미지 (기획부장 전용)&nbsp;<small>(바로 적용 안될 시, 브라우저 캐시 삭제 바람)</small></h3>
+  </div>
+  <?php foreach ($main_images as $k => $row): ?>
+    <div class="col-md-4 col-xs-12 img-list">
+      <img class="img-thumbnail" src="<?=base_url('assets/img/main/'.$row['code_desc'])?>" alt="">
+      <form class="" action="<?=base_url('admin/Main/edit_main_image')?>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="code_group" value="<?=$row['code_group']?>">
+        <input type="hidden" name="code_name" value="<?=$row['code_name']?>">
+        <input type="hidden" name="code_seq" value="<?=$row['code_seq']?>">
+        <input type="file" name="code_desc" class="form-control edit_file">
+        <button class="btn btn-block btn-primary edit_button" type="submit" disabled="true">수정 (jpg만 가능)</button>
+      </form>
+    </div>
+  <?php endforeach; ?>
+</div>
+
+<script type="text/javascript">
+  $(".edit_file").on("change", function () {
+    $(this).siblings(".edit_button").attr('disabled', false);
+  });
+</script>

@@ -100,9 +100,9 @@
         </div>
         <!-- Enter -->
         <div class= "form-group col-md-6">
-          <label for="user_name">학번</label>
+          <label for="user_name">입학년도(4자리)</label>
           <input class="form-control" type="text" id="user_enter" name="user_enter"
-              placeholder="" tabindex="7">
+              placeholder="2017" tabindex="7">
         </div>
         <!-- Birth -->
         <div class= "form-group col-md-12">

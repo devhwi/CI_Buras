@@ -26,4 +26,16 @@ class MMain extends CI_Model{
     $this->db->from('finance');
     return $this->db->count_all_results();
   }
+
+  function get_main_images() {
+    $sql = "SELECT code_group
+                 , code_name
+                 , code_desc
+                 , code_seq
+            FROM code_table
+            WHERE code_group = 'main'
+            ORDER BY code_seq";
+    $query = $this->db->query($sql);
+    return $query->result_array();
+  }
 }
