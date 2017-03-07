@@ -45,8 +45,9 @@
         <a href="#" data-toggle="modal" data-target="#vdoModal"
           data-vdo="<?=$videoURL?>"
           data-title="<?=$row['media_title']?>"> <!-- detail link -->
-          <h4 class="card-title"><?=$row['media_title']?></h4>
+          <h4 class="card-title"><?=$row['media_title']?></h5>
         </a>
+        <p class="card-text"><small class="text-muted"><?=$row['media_category']?></small></p>
       </div>
     </div>
   <?php endforeach; ?>
