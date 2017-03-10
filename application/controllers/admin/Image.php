@@ -11,7 +11,7 @@ class Image extends CI_Controller{
       session_error_msg();
     }else{
       // admin check (rental & web master)
-      if(admin_check() != 7) {
+      if(admin_check() != 7 || admin_check() != 10) {
         admin_error_msg();
       }
     }

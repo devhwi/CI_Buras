@@ -13,6 +13,7 @@
           </th>
         </tr>
         <tr>
+          <th>카테고리</th>
           <th>이미지</th>
           <th>제목</th>
           <th>글쓴이</th>
@@ -23,6 +24,7 @@
       <tbody>
         <?php foreach ($gallery_list as $k => $row): ?>
           <tr>
+            <td><?=$row['media_category']?></td>
             <td>
               <img src="<?=base_url('assets/img/gallery/'.$row['media_content'])?>" alt="" width="150px">
             </td>
@@ -58,6 +60,10 @@
           <div class="form-group">
             <label for="">사진 제목</label>
             <input class="form-control" type="text" name="media_title" required>
+          </div>
+          <div class="form-group">
+            <label for="">카테고리</label>
+            <input class="form-control" type="text" name="media_category">
           </div>
           <div class="form-group">
             <label for="">사진 파일</label>

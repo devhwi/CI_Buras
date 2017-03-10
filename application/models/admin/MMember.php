@@ -40,5 +40,10 @@ class MMember extends CI_Model{
     $this->db->where('user_id', $data['user_id']);
     $this->db->update('user', $data);
   }
+
+  function delete($user) {
+    $this->db->where('user_id', $user);
+    $this->db->delete('user');
+  }
 }
 ?>

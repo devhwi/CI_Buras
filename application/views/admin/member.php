@@ -14,6 +14,7 @@
         <th>연락처</th>
         <th>이메일</th>
         <th>권한레벨</th>
+        <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody>
@@ -35,6 +36,12 @@
               <option value="<?=$auth['level_id']?>" <?=$row['user_level'] == $auth['level_id'] ? 'selected' : ''?>><?=$auth['level_desc']?></option>
               <?php endforeach; ?>
             </select>
+          </form>
+        </td>
+        <td>
+          <form class="" action="<?=base_url('admin/Member/remove')?>" method="post" onsubmit="return confirm('정말로 탈퇴시키겠습니까?')">
+            <input type="hidden" name="user_id" value="<?=$row['user_id']?>">
+            <button type="submit" class="btn btn-block btn-danger">회원탈퇴</button>
           </form>
         </td>
       </tr>

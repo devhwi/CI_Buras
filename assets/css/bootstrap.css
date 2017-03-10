@@ -3628,6 +3628,7 @@ tbody.collapse.in {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  padding-top: 1em;
 }
 
 .nav-link {
@@ -6037,7 +6038,7 @@ button.close {
 }
 
 .bg-faded {
-  background-color: #f7f7f9;
+  background-color: #ffffff;
 }
 
 .bg-primary {

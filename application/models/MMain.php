@@ -7,14 +7,6 @@ class MMain extends CI_Model{
     parent::__construct();
   }
 
-  function get_category() {
-    $sql = "SELECT *
-            FROM board_category";
-    $query = $this->db->query($sql);
-
-    return $query->result_array();
-  }
-
   function get_latest_board_list($category) {
     $sql = "SELECT board_id
                  , board_category
@@ -26,5 +18,18 @@ class MMain extends CI_Model{
     $query = $this->db->query($sql);
 
     return $query->result_array();
+  }
+
+  function get_leader($gender) {
+    $sql = "SELECT CONCAT(user_name, ' (', user_phone,')') AS leader
+            FROM code_table ct
+               , user u
+            WHERE code_group = 'main'
+            AND code_seq = $gender
+            AND ct.code_desc = u.user_id";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+
+    return $row->leader;
   }
 }

@@ -171,4 +171,14 @@ class MBoard extends CI_Model{
 
     return $row->board_file;
   }
+
+  function get_category_by_id($id) {
+    $sql = "SELECT board_category
+            FROM board
+            WHERE board_id = $id";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+
+    return $row->board_category;
+  }
 }

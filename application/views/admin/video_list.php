@@ -13,6 +13,7 @@
           </th>
         </tr>
         <tr>
+          <th>카테고리</th>
           <th>썸네일</th>
           <th>제목</th>
           <th>글쓴이</th>
@@ -30,6 +31,7 @@
             $videoURL = 'https://www.youtube.com/embed/'.$youtubeVideoId;
           ?>
           <tr>
+            <td><?=$row['media_category']?></td>
             <td>
               <img src="<?=$thumbURL?>" alt="" width="150px">
             </td>

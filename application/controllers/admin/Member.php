@@ -54,4 +54,15 @@ class Member extends CI_Controller{
 
     redirect('admin/Member', 'refresh');
   }
+
+  /**
+   * 멤버 탈퇴
+   */
+  function remove() {
+    $user = $this->input->post('user_id');
+
+    $this->MMember->delete($user);
+
+    redirect('admin/Member', 'refresh');
+  }
 }

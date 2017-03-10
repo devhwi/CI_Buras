@@ -52,6 +52,7 @@
     </div>
   </div>
   <h5 class="reply-title">댓글</h5>
+  <?php if ($this->session->userdata('user_id')) : ?>
   <div class="card card-outline-secondary">
     <div class="card-block">
       <!-- WRITE REPLY AREA -->
@@ -66,6 +67,7 @@
       </form>
     </div>
   </div>
+  <?php endif; ?>
   <div class="list-group">
     <div class="list-group-item" style="border-color:#fff">
       <?php if($reply_count == 0) : ?>

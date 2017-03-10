@@ -66,6 +66,7 @@
         <!-- User Account Information -->
         <ul class="nav navbar-nav pull-xs-right" style="float:right">
           <li class="nav-item">
+            <?php if ($this->session->userdata('user_id')): ?>
             <div class="dropdown">
               <a class="dropdown-toggle nav-link" id="user-menu" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false" href="#">
@@ -80,27 +81,30 @@
                 </div>
                 <div class="col-md-12 dropdown-divider"></div>
                 <div class="col-md-12">
-                  <a href="#" class="btn btn-primary btn-block btn-sm">내정보</a>
+                  <a href="<?=base_url('Member/myInfo')?>" class="btn btn-primary btn-block btn-sm">내정보</a>
                 </div>
                 <div class="col-md-12" style="margin-top:0.25em">
                   <a href="<?=base_url('Login/logout')?>" class="btn btn-danger btn-block btn-sm">로그아웃</a>
                 </div>
               </div>
             </div>
+            <?php else: ?>
+              <a class="nav-link" href="<?=base_url('Login')?>">로그인</a>
+            <?php endif; ?>
     <?php
             // }
     ?>
           </li>
         </ul>
         <div class="collapse navbar-toggleable-md" id="navbarResponsive">
-          <a class="navbar-brand" href="#">
-            <!-- <img src="" alt="" width="88px" height="45px"/> -->
-            LOGO
+          <a class="navbar-brand" href="<?=base_url()?>">
+            <img src="<?=base_url('assets/img/logo.jpg')?>" alt="" width="75px" height="60px"/>
           </a>
           <ul class="nav navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="<?=base_url('Main')?>">HOME</a>
+              <a class="nav-link" href="<?=base_url()?>">HOME</a>
             </li>
+            <?php if ($this->session->userdata('user_id') && $this->session->userdata('user_level') >= 1): ?>
             <li class="nav-item">
               <a class="nav-link" href="<?=base_url('Member')?>">MEMBER</a>
             </li>
@@ -130,7 +134,12 @@
                 <a class="dropdown-item" href="<?=base_url('Board/4')?>">DATA</a>
               </div>
             </li>
-            <?php if($this->session->userdata('user_level') >= 8) : ?>
+            <?php else: ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?=base_url('Board/1')?>">NOTICE</a>
+            </li>
+            <?php endif;?>
+            <?php if($this->session->userdata('user_level') >= 7) : ?>
             <li class="nav-item">
               <a class="nav-link" href="<?=base_url('admin/Main')?>" target="_blank">ADMIN</a>
             </li>

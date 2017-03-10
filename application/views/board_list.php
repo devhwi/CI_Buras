@@ -76,11 +76,13 @@
       <tr>
         <td colspan=5><?=$this->pagination->create_links();?></td>
       </tr>
+      <?php if ($this->session->userdata('user_id')): ?>
       <tr>
         <td style="text-align:right;" colspan=5>
           <a class="btn btn-primary" style="color:#fff" href="<?=base_url('Board/write/'.$category_id)?>">글쓰기</a>
         </td>
       </tr>
+      <?php endif;?>
     </tfoot>
   </table>
   <ul class="list-group hidden-sm-up">
@@ -106,7 +108,9 @@
   <div class="hidden-sm-up" align="center">
     <?=$this->pagination->create_links();?><br>
   </div>
+  <?php if ($this->session->userdata('user_id')): ?>
   <div class="hidden-sm-up" align="right">
     <a class="btn btn-primary" style="color:#fff" href="<?=base_url('Board/write/'.$category_id)?>">글쓰기</a>
   </div>
+  <?php endif; ?>
 </div>

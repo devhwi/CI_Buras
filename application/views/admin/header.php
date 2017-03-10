@@ -86,11 +86,11 @@
           <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
         </a>
         <ul class="dropdown-menu dropdown-user">
-          <li><a href="##"><i class="fa fa-user fa-fw"></i> User Profile</a>
+          <!-- <li><a href="##"><i class="fa fa-user fa-fw"></i> User Profile</a>
           </li>
           <li><a href="##"><i class="fa fa-gear fa-fw"></i> Settings</a>
           </li>
-          <li class="divider"></li>
+          <li class="divider"></li> -->
           <li><a href="<?=base_url('Login/logout')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
           </li>
         </ul>
@@ -148,9 +148,12 @@
           <li>
             <a href="<?=base_url('admin/Main')?>"><i class="fa fa-home fa-fw"></i> 홈</a>
           </li>
+          <?php if (admin_check() == 10): ?>
           <li>
             <a href="<?=base_url('admin/Member')?>"><i class="fa fa-users fa-fw"></i> 회원 관리</a>
           </li>
+          <?php endif; ?>
+          <?php if (admin_check() == 7 || admin_check() == 10): ?>
           <li>
             <a href="##"><i class="fa fa-list-alt fa-fw"></i> 게시판 관리<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
@@ -168,6 +171,8 @@
               </li>
             </ul>
           </li>
+          <?php endif; ?>
+          <?php if (admin_check() == 8 || admin_check() == 10): ?>
           <li>
             <a href="##"><i class="fa fa-archive fa-fw"></i> 물품 관리<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
@@ -185,9 +190,12 @@
           <li>
             <a href="<?=base_url('admin/Rental')?>"><i class="fa fa-expand fa-fw"></i> 렌탈 관리</a>
           </li>
+          <?php endif; ?>
+          <?php if (admin_check() == 9 || admin_check() == 10): ?>
           <li>
             <a href="<?=base_url('admin/Finance')?>"><i class="fa fa-krw fa-fw"></i> 회계 관리</a>
           </li>
+          <?php endif; ?>
         </ul>
       </div>
       <!-- /.sidebar-collapse -->

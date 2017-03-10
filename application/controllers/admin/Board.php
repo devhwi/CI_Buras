@@ -11,7 +11,7 @@ class Board extends CI_Controller{
       session_error_msg();
     }else{
       // admin check (rental & web master)
-      if(admin_check() != 7) {
+      if(admin_check() != 7 || admin_check() != 10) {
         admin_error_msg();
       }
     }
@@ -178,6 +178,7 @@ class Board extends CI_Controller{
         $data = array(
           'media_writer'      => $this->input->post('media_writer')
         , 'media_type'        => 2
+        , 'media_category'    => $this->input->post('media_category')
         , 'media_title'       => $this->input->post('media_title')
         , 'media_content'     => $file_name
         , 'media_dttm'        => date('Y-m-d h:i:s')

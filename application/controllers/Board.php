@@ -8,7 +8,9 @@ class Board extends CI_Controller{
 
     // session check
     if(!session_check()) {
-      session_error_msg();
+      if(!(($this->uri->segment(2) && $this->uri->segment(2) == 1) || ($this->uri->segment(3) && $this->uri->segment(2) == "detail"))){
+        session_error_msg();
+      }
     }
 
     $this->load->model('MBoard');
@@ -73,7 +75,13 @@ class Board extends CI_Controller{
   function detail() {
     if(!($this->uri->segment(3))) {
       general_error_msg();
+    }else {
+      if($this->MBoard->get_category_by_id($this->uri->segment(3)) == 1) {
+
+      }
     }
+
+    $board_id = $this->uri->segment(3);
 
     $board_id = $this->uri->segment(3);
 

@@ -6,6 +6,11 @@
 .img-list {
   text-align: center;
 }
+
+#main-poster {
+  max-width: inherit;
+  max-height: auto;
+}
 </style>
 <!-- Title Area -->
 <div class="row">
@@ -122,6 +127,51 @@
       </form>
     </div>
   <?php endforeach; ?>
+</div>
+
+<div class="row" style="margin-bottom: 2em">
+  <div class="col-md-6 col-xs-12">
+    <div class="col-lg-12">
+      <h3 class="page-header">메인 포스터</h3>
+    </div>
+    <div class="col-lg-12">
+      <img src="<?=base_url('assets/img/main/'.$main_poster->code_desc)?>" id="main-poster">
+      <form class="" action="<?=base_url('admin/Main/edit_main_poster')?>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="code_group" value="main">
+        <input type="hidden" name="code_name" value="poster">
+        <input type="file" name="code_desc" class="form-control edit_file">
+        <button class="btn btn-block btn-primary edit_button" type="submit" disabled="true">수정 (jpg만 가능)</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <div class="col-lg-12">
+      <h3 class="page-header">연락처 정보</h3>
+    </div>
+    <div class="col-lg-12">
+      <form class="" action="<?=base_url('admin/Main/edit_leaders')?>" method="post">
+        <div class="form-group">
+          <label for="">남회장</label>
+          <select class="form-control" name="boy">
+            <?php foreach ($members as $k => $row): ?>
+              <option value="<?=$row['user_id']?>" <?=$row['user_id'] == $boy_contact->code_desc ? 'selected' : ''?>><?=$row['user_name']?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">여회장</label>
+          <select class="form-control" name="girl">
+            <?php foreach ($members as $k => $row): ?>
+              <option value="<?=$row['user_id']?>" <?=$row['user_id'] == $girl_contact->code_desc ? 'selected' : ''?>><?=$row['user_name']?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-block btn-primary" type="submit" name="button">저장</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript">
