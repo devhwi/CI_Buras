@@ -10,7 +10,7 @@ class Finance extends CI_Controller{
       session_error_msg();
     }else{
       // admin check (rental & web master)
-      if(admin_check() != 9 || admin_check() != 10) {
+      if(admin_check() != 9 && admin_check() != 10) {
         admin_error_msg();
       }
     }

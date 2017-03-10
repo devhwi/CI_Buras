@@ -11,7 +11,7 @@ class Login extends CI_Controller{
       session_error_msg();
     }else{
       // admin check
-      if(admin_check() < 8) {
+      if(admin_check() < 7) {
         echo "<script>alert(".admin_check().")</script>";
         admin_error_msg();
       }else{
