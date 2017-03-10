@@ -24,7 +24,7 @@
         <textarea class="form-control" name="board_content" rows="8" cols="80" required></textarea>
       </div>
     </div>
-    <?php if ($board_category == 3 || $board_category == 4) : ?>
+    <?php if ($board_category == 2 || $board_category == 3 || $board_category == 4) : ?>
     <div class="form-group row">
       <label class="col-md-2 col-form-label" for="board_content">첨부파일</label>
       <div class="col-md-10">

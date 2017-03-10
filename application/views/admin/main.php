@@ -154,7 +154,7 @@
           <label for="">남회장</label>
           <select class="form-control" name="boy">
             <?php foreach ($members as $k => $row): ?>
-              <option value="<?=$row['user_id']?>" <?=$row['user_id'] == $boy_contact->code_desc ? 'selected' : ''?>><?=$row['user_name']?></option>
+              <option value="<?=$row['user_id']?>" <?=$row['user_id'] == $boy_contact->code_desc ? 'selected' : ''?>><?=$row['user_name'].' ('.$row['user_phone'].')'?></option>
             <?php endforeach; ?>
           </select>
         </div>
@@ -162,7 +162,7 @@
           <label for="">여회장</label>
           <select class="form-control" name="girl">
             <?php foreach ($members as $k => $row): ?>
-              <option value="<?=$row['user_id']?>" <?=$row['user_id'] == $girl_contact->code_desc ? 'selected' : ''?>><?=$row['user_name']?></option>
+              <option value="<?=$row['user_id']?>" <?=$row['user_id'] == $girl_contact->code_desc ? 'selected' : ''?>><?=$row['user_name'].' ('.$row['user_phone'].')'?></option>
             <?php endforeach; ?>
           </select>
         </div>

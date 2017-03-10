@@ -99,8 +99,10 @@ class Board extends CI_Controller{
       general_error_msg();
     }
 
-    if($this->uri->segment(3) == 1){
-      if(!(admin_check() >= 8)) {
+    if($this->uri->segment(3) == 1
+    || $this->uri->segment(3) == 2
+    || $this->uri->segment(3) == 3){
+      if(!(admin_check() >= 7)) {
         admin_error_msg();
       }
     }

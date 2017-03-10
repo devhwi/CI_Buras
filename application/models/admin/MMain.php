@@ -85,6 +85,7 @@ class MMain extends CI_Model{
   function get_members() {
     $sql = "SELECT user_id
                  , user_name
+                 , user_phone
             FROM user
             WHERE user_level >= 1
             AND user_id != 'admin'
