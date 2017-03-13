@@ -3,7 +3,7 @@
     margin-bottom: 1em;
   }
   .card {
-    height: 250px; /* 임시 높이 사이즈 */
+    /*height: 250px; /* 임시 높이 사이즈 */*/
   }
 </style>
 
@@ -34,9 +34,9 @@
         <h4 class="card-title">[<?=$row['user_season']?>기]&nbsp;<?=$row['user_name']?></h4>
         <p class="card-text"><?=$row['user_birth']?></p>
       </div>
-      <div class="card-footer">
+      <!-- <div class="card-footer">
         <small class="text-muted">푸터</small>
-      </div>
+      </div> -->
     </div>
   </div>
   <?php endforeach; ?>

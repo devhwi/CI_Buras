@@ -135,8 +135,6 @@ class MBoard extends CI_Model{
   function delete_board($id) {
     $this->db->where('board_id', $id);
     $this->db->delete('board');
-
-    return $this->db->affected_rows();
   }
 
   function update_seq($category, $seq) {

@@ -125,10 +125,10 @@ class Board extends CI_Controller{
     $board_notice = $board_category == 1 ? 1 : 0;
     $file_name = "";
 
-    if($board_category == 3 || $board_category == 4) {
+    if($board_category == 2 || $board_category == 3 || $board_category == 4) {
       // file upload config
       $config['upload_path'] = './assets/file/';
-      $config['allowed_types'] = 'hwp|ppt|pptx|xls|xlsx|doc|docx|txt|zip';
+      $config['allowed_types'] = 'hwp|ppt|pptx|xls|xlsx|doc|docx|txt|zip|pdf';
       $config['file_ext_tolower'] = TRUE;
       $config['max_size'] = "4096";
       $config['remove_spaces'] = TRUE;
@@ -136,9 +136,9 @@ class Board extends CI_Controller{
       $this->load->library('upload', $config);
 
       if ( ! $this->upload->do_upload('board_file') ) {
-        $error = array('error' => $this->upload->display_errors());
+        $error = array('error' => $this->upload->display_errors('<p>','</p>'));
         // redirect('Board/write/'.$board_category, 'refresh');
-        echo $error;
+        print_r($error);
       } else {
         $file_name = $this->upload->data('file_name');
       }
@@ -161,7 +161,7 @@ class Board extends CI_Controller{
       echo "<script>alert('오류입니다. 관리자에게 문의해 주세요.');</script>";
     }
 
-    redirect('Board/'.$board_category, 'refresh');
+    // redirect('Board/'.$board_category, 'refresh');
   }
 
   function edit() {
@@ -194,13 +194,9 @@ class Board extends CI_Controller{
       'board_content' => nl2br($this->input->post('board_content'))
     );
 
-    if( $this->MBoard->edit_board($data, $board_id) == 1 ) {
-      echo "<script>alert('수정되었습니다.')</script>";
-      redirect('Board/detail/'.$board_id, 'refresh');
-    }else {
-      echo "<script>alert('오류입니다. 관리자에게 문의하여 주세요.')</script>";
-      redirect('Board/detail/'.$board_id, 'refresh');
-    }
+    $this->MBoard->edit_board($data, $board_id);
+    // echo "<script>alert('수정되었습니다.')</script>";
+    redirect('Board/detail/'.$board_id, 'refresh');
   }
 
   function delete() {
@@ -226,23 +222,21 @@ class Board extends CI_Controller{
 
     $this->ftp->connect($config);
 
-    $this->ftp->delete_file('./assets/file/'.$this->MBoard->get_file_name($board_id));
+    if(!$this->ftp->delete_file('assets/file/'.$this->MBoard->get_file_name($board_id))){
+      echo "<script>alert('파일 삭제 중 오류가 발생했습니다.')</script>";
+    }
 
     $this->ftp->close();
 
-    if( $this->MBoard->delete_board($board_id) == 1 ) {
-      // update seq
-      $this->MBoard->update_seq($board_category, $board_seq);
+    $this->MBoard->delete_board($board_id);
+    // update seq
+    $this->MBoard->update_seq($board_category, $board_seq);
 
-      // delete replies
-      $this->MBoard->delete_replies($board_id);
+    // delete replies
+    $this->MBoard->delete_replies($board_id);
 
-      echo "<script>alert('삭제되었습니다.')</script>";
-      redirect('Board/'.$board_category, 'refresh');
-    }else {
-      echo "<script>alert('오류입니다. 관리자에게 문의하여 주세요.')</script>";
-      redirect('Board/'.$board_category, 'refresh');
-    }
+    echo "<script>alert('삭제되었습니다.')</script>";
+    redirect('Board/'.$board_category, 'refresh');
   }
 
   function download() {
@@ -253,7 +247,7 @@ class Board extends CI_Controller{
     $file_name = $this->uri->segment(3);
 
 		$this->load->helper('download');
-		$data = file_get_contents("./assets/file/".$file_name);
+		$data = file_get_contents(base_url($file_name, "assets/file/".$file_name));
 
 		force_download($file_name, $data);
   }

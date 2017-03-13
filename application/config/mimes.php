@@ -179,5 +179,7 @@ return array(
 	'odt'	=>	'application/vnd.oasis.opendocument.text',
 	'odm'	=>	'application/vnd.oasis.opendocument.text-master',
 	'ott'	=>	'application/vnd.oasis.opendocument.text-template',
-	'oth'	=>	'application/vnd.oasis.opendocument.text-web'
+	'oth'	=>	'application/vnd.oasis.opendocument.text-web',
+	// 'hwp' =>  array('application/unknown', 'application/hansofthwp')
+	'hwp' => array('application/unknown', 'text/plain')
 );

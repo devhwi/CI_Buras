@@ -33,11 +33,12 @@
         <?=$detail->board_content?>
       </p>
       <p>
-        <?php if ($detail->board_category == 3 || $detail->board_category == 4): ?>
+        <?php if ($detail->board_category == 2 || $detail->board_category == 3 || $detail->board_category == 4): ?>
           <?php if ($detail->board_file == ""): ?>
             파일 없음
           <?php else: ?>
-            <a href="<?=base_url('Board/download/'.$detail->board_file)?>"><?=$detail->board_file?></a>
+            <!-- <a href="<?=base_url('Board/download/'.$detail->board_file)?>"><?=$detail->board_file?></a> -->
+            <a href="http://buras.cafe24.com/assets/file/<?=$detail->board_file?>"><?=$detail->board_file?></a>
           <?php endif; ?>
         <?php endif; ?>
       </p>
