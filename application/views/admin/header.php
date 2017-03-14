@@ -97,6 +97,21 @@
         <!-- /.dropdown-user -->
       </li>
       <!-- /.dropdown -->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="##">
+          <i class="fa fa-github fa-fw"></i> 개발자 정보 <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user">
+          <li>
+            <a href="https://www.github.com/devhwi" target="_blank"><i class="fa fa-user fa-fw"></i> 개발자 페이지</a>
+          </li>
+          <li>
+            <a href="https://www.github.com/devhwi/CI_Buras" target="_blank"><i class="fa fa-code fa-fw"></i> Buras 페이지정보</a>
+          </li>
+        </ul>
+        <!-- /.dropdown-user -->
+      </li>
+      <!-- /.dropdown -->
     </ul>
     <!-- /.navbar-top-links -->
     <!-- 상단바 메뉴 끝 -->

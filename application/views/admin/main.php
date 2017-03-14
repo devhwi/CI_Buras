@@ -8,7 +8,7 @@
 }
 
 #main-poster {
-  max-width: inherit;
+  max-width: 100%;
   max-height: auto;
 }
 </style>
@@ -113,7 +113,7 @@
 
 <div class="row">
   <div class="col-lg-12">
-      <h3 class="page-header">메인 이미지 (기획부장 전용)&nbsp;<small>(바로 적용 안될 시, 브라우저 캐시 삭제 바람)</small></h3>
+      <h3 class="page-header">메인 이미지 (회장 & 기획 전용)&nbsp;<small>(바로 적용 안될 시, 브라우저 캐시 삭제 바람)</small></h3>
   </div>
   <?php foreach ($main_images as $k => $row): ?>
     <div class="col-md-4 col-xs-12 img-list">

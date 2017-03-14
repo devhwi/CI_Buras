@@ -26,9 +26,12 @@
     </div>
     <?php if ($board_category == 2 || $board_category == 3 || $board_category == 4) : ?>
     <div class="form-group row">
-      <label class="col-md-2 col-form-label" for="board_content">첨부파일</label>
+      <label class="col-md-2 col-form-label" for="board_content">
+        첨부파일&nbsp;<button id="tip" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="ms office, pdf, txt파일 가능.최대 4MB">유의사항</button>
+      </label>
       <div class="col-md-10">
-        <input class="form-control" type="file" name="board_file" required>
+        <input class="form-control" type="file" name="board_file"
+          accept=".xls, .xlsx, .ppt, .pptx, .doc, .docx, .txt, .zip, .pdf" required>
       </div>
     </div>
     <?php endif; ?>
@@ -40,3 +43,9 @@
     </div>
   </form>
 </div>
+
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip('toggle');
+})
+</script>

@@ -128,7 +128,7 @@ class Board extends CI_Controller{
     if($board_category == 2 || $board_category == 3 || $board_category == 4) {
       // file upload config
       $config['upload_path'] = './assets/file/';
-      $config['allowed_types'] = 'hwp|ppt|pptx|xls|xlsx|doc|docx|txt|zip|pdf';
+      $config['allowed_types'] = 'ppt|pptx|xls|xlsx|doc|docx|txt|zip|pdf';
       $config['file_ext_tolower'] = TRUE;
       $config['max_size'] = "4096";
       $config['remove_spaces'] = TRUE;
@@ -136,9 +136,9 @@ class Board extends CI_Controller{
       $this->load->library('upload', $config);
 
       if ( ! $this->upload->do_upload('board_file') ) {
-        $error = array('error' => $this->upload->display_errors('<p>','</p>'));
-        // redirect('Board/write/'.$board_category, 'refresh');
-        print_r($error);
+        $error = array('error' => $this->upload->display_errors());
+        // echo "<script>alert($error)</script>";
+        redirect('Board/write/'.$board_category, 'refresh');
       } else {
         $file_name = $this->upload->data('file_name');
       }
@@ -161,7 +161,7 @@ class Board extends CI_Controller{
       echo "<script>alert('오류입니다. 관리자에게 문의해 주세요.');</script>";
     }
 
-    // redirect('Board/'.$board_category, 'refresh');
+    redirect('Board/'.$board_category, 'refresh');
   }
 
   function edit() {
