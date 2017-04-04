@@ -65,7 +65,7 @@ class Main extends CI_Controller{
     }
   }
 
-  function edit_eaders() {
+  function edit_leaders() {
     if(admin_check() != 7 || admin_check() != 10) {
       admin_error_msg();
     }
@@ -100,6 +100,8 @@ class Main extends CI_Controller{
 
     if(! $this->upload->do_upload('code_desc') ) {
       echo "<script>alert('파일 업로드에 실패하였습니다.');</script>";
+      $error = array('error' => $this->upload->display_errors());
+      print_r($error);
       redirect('admin/Main', 'refresh');
     } else {
       $uploaded_file = $this->upload->data();

@@ -114,6 +114,8 @@ class Board extends CI_Controller{
     $content = explode('/', $this->input->post('media_content'));
     $countArr = count($content);
     $media_content = $content[$countArr - 1];
+    $media_content = explode('?', $media_content);
+    $media_content = $media_content[0];
 
     $data = array(
       'media_writer' => $this->input->post('media_writer'),

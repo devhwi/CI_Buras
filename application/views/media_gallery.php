@@ -1,5 +1,5 @@
 <style media="screen">
-  img {
+  .card-img-top {
     max-width:100%;
     margin-top: 1em;
     padding: 0em 1em;
